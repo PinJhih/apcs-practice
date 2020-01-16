@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">apcs-practice</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="session_10503">105年3月</string>
+    <string name="session_10510">105年10月</string>
+    <string name="session_10603">106年3月</string>
+
+    <integer-array name="res_10503">
+        <item>@array/content_10503</item>
+    </integer-array>
+
+    <integer-array name="res_10510">
+        <item>@array/content_10510</item>
+    </integer-array>
+
+    <integer-array name="res_10603">
+        <item>@array/content_10603</item>
+    </integer-array>
+
+    <string-array name="content_10503">
+        <item>q01</item>
+    </string-array>
+
+    <string-array name="content_10510">
+        <item>q01</item>
+    </string-array>
+
+    <string-array name="content_10603">
+        <item>q01</item>
+    </string-array>
+</resources>
