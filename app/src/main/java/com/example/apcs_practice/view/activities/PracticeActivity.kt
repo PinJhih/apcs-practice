@@ -12,6 +12,7 @@ class PracticeActivity : AppCompatActivity() {
 
     private var questions = ArrayList<Question>()
     private var questionNumber = 0
+    lateinit var answers: CharArray
 
     private fun setQuestions(session: Int) {
         val resId = IntArray(2)
@@ -48,7 +49,7 @@ class PracticeActivity : AppCompatActivity() {
             setQuestions(session)
         }
 
-        val answers = CharArray(questions.size)
+        answers = CharArray(questions.size)
         for (i in 0 until answers.count())
             answers[i] = 'x'
         setView()
@@ -71,11 +72,9 @@ class PracticeActivity : AppCompatActivity() {
             }
 
             override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
+                parent: AdapterView<*>?, view: View?, position: Int, id: Long
             ) {
+                //reset the view when user select the question
                 questionNumber = position
                 setView()
             }
@@ -94,15 +93,34 @@ class PracticeActivity : AppCompatActivity() {
                 questionNumber = 0
             setView()
         }
+        //save the answer
+        radioGroup.setOnCheckedChangeListener { _, i ->
+            answers[questionNumber] = when (i) {
+                btn_choice_a.id -> 'A'
+                btn_choice_b.id -> 'B'
+                btn_choice_c.id -> 'C'
+                btn_choice_d.id -> 'D'
+                else -> 'x'
+            }
+        }
     }
 
     private fun setView() {
-        val choice = "A. "+questions[questionNumber].choice_a + "\n" +
-                "B. "+questions[questionNumber].choice_b + "\n" +
-                "C. "+questions[questionNumber].choice_c + "\n" +
-                "D. "+questions[questionNumber].choice_d
+        val choice = "A. " + questions[questionNumber].choice_a + "\n" +
+                "B. " + questions[questionNumber].choice_b + "\n" +
+                "C. " + questions[questionNumber].choice_c + "\n" +
+                "D. " + questions[questionNumber].choice_d
 
         tv_stem.text = questions[questionNumber].stem
         tv_choices.text = choice
+        spinner_number.setSelection(questionNumber)
+
+        when(answers[questionNumber]){
+            'A'->btn_choice_a.isChecked=true
+            'B'->btn_choice_b.isChecked=true
+            'C'->btn_choice_c.isChecked=true
+            'D'->btn_choice_d.isChecked=true
+            else-> radioGroup.clearCheck()
+        }
     }
 }

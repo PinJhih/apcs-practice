@@ -92,28 +92,28 @@
                     app:layout_constraintTop_toBottomOf="@+id/img">
 
                     <RadioButton
-                        android:id="@+id/btn_coice_a"
+                        android:id="@+id/btn_choice_a"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/choice_a" />
 
                     <RadioButton
-                        android:id="@+id/btn_coice_b"
+                        android:id="@+id/btn_choice_b"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/choice_b" />
 
                     <RadioButton
-                        android:id="@+id/btn_coice_c"
+                        android:id="@+id/btn_choice_c"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/choice_c" />
 
                     <RadioButton
-                        android:id="@+id/btn_coice_d"
+                        android:id="@+id/btn_choice_d"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
