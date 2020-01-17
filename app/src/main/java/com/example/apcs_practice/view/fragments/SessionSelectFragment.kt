@@ -44,9 +44,9 @@ class SessionSelectFragment : Fragment() {
     }
 
     private fun startPractice(resId:Int){
-        val intent = Intent(this@SessionSelectFragment.context, PracticeActivity::class.java)
-        intent.putExtra("resId",resId)
+        val intent = Intent(this.context, PracticeActivity::class.java)
 
+        intent.putExtra("session",resId)
         startActivity(intent)
     }
 

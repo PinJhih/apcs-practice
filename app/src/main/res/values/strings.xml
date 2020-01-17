@@ -1,34 +1,284 @@
 <resources>
-    <string name="app_name">apcs-practice</string>
+    <string name="app_name">APCS觀念練習</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="next">下一題</string>
+    <string name="last">上一題</string>
 
     <string name="session_10503">105年3月</string>
     <string name="session_10510">105年10月</string>
     <string name="session_10603">106年3月</string>
 
+    <string name="choice_a">A</string>
+    <string name="choice_b">B</string>
+    <string name="choice_c">C</string>
+    <string name="choice_d">D</string>
+
     <integer-array name="res_10503">
-        <item>@array/content_10503</item>
+        <item>@array/stem_10503</item>
+        <item>@array/choice_10503</item>
     </integer-array>
 
     <integer-array name="res_10510">
-        <item>@array/content_10510</item>
+        <item>@array/stem_10510</item>
+        <item>@array/choice_10510</item>
     </integer-array>
 
     <integer-array name="res_10603">
-        <item>@array/content_10603</item>
+        <item>@array/stem_10603</item>
+        <item>@array/choice_10603</item>
     </integer-array>
 
-    <string-array name="content_10503">
+    <string-array name="stem_10503">
+        <item>
+            右側程式正確的輸出應該如下：\n\t\t\t\t\t*\n\t\t\t\t***\n\t\t\t*****\n\t\t*******\n\t*********\n在不修改右側程式之第4行及第7行程式碼的前提下，最少需修改幾行程式碼以得到正確輸出？
+        </item>
+
+        <item>
+            給定一陣列a[10]={ 1, 3, 9, 2, 5, 8, 4, 9, 6, 7 }，i.e., a[0]=1,a[1]=3, …, a[8]=6, a[9]=7，以f(a, 10)呼叫執行右側函式後，回傳值為何？
+        </item>
+
+        <item>
+            給定一整數陣列a[0]、a[1]、…、a[99]且a[k]=3k+1，以value=100呼叫以下兩函式，假設函式f1及f2之while迴圈主體分別執行n1與n2次 (i.e, 計算if敘述執行次數，不包含 else
+            if敘述)，請問n1與n2之值為何?\n
+            註： (low + high)/2 只取整數部分。
+        </item>
+
+        <item>
+            經過運算後，右側程式的輸出為何？
+        </item>
+
+        <item>
+            函數f定義如下，如果呼叫f(1000)，指令sum=sum+i被執行的次數最接近下列何者？
+        </item>
+
+        <item>
+            (記得改!!!)List是一個陣列，裡面的元素是element，它的定義如右。List中的每一個element利用next這個整數變數來記錄下一個element在陣列中的位置，如果沒有下一個element，next就會記錄-1。所有的element串成了一個串列
+            (linked list)。例如在list中有三筆資料
+        </item>
+
+        <item>
+            請問以a(13,15)呼叫右側a()函式，函式執行完後其回傳值為何？
+        </item>
+
+        <item>
+            一個費式數列定義第一個數為0第二個數為1之後的每個數都等於前兩個數相加，如下所示:0、1、1、2、3、5、8、13、21、34、55、89…。右列的程式用以計算第N個(N≥2)費式數列的數值，請問 (a) 與 (b)
+            兩個空格的敘述(statement)應該為何？
+        </item>
+
+        <item>
+            請問右側程式輸出為何？
+        </item>
+
+        <item>
+            給定右側 g() 函式，g(13) 回傳值為何？
+        </item>
+
+        <item>
+            定義 a[n] 為一陣列 (array)，陣列元素的指標為0至n-1。若要將陣列中a[0]的元素移到a[n-1]，右側程式片段空白處該填入何運算式？
+        </item>
+
+        <item>
+            給定右側函式 f1() 及 f2()。f1(1)運算過程中，以下敘述何者為錯？
+        </item>
+
+        <item>
+            右側程式片段擬以輾轉除法求 i 與 j 的最大公因數。請問while迴圈內容何者正確？
+        </item>
+
+        <item>
+            右側程式輸出為何？
+        </item>
+
+        <item>
+            若以f(22)呼叫右側f()函式，總共會印出多少數字？
+        </item>
+
+        <item>
+            右側程式執行過後所輸出數值為何？
+        </item>
+
+        <item>
+            右側程式片段主要功能為：輸入六個整數，檢測並印出最後一個數字是否為六個數字中最小的值。然而，這個程式是錯誤的。請問以下哪一組測試資料可以測試出程式有誤？
+        </item>
+
+        <item>
+            程式編譯器可以發現下列哪種錯誤?
+        </item>
+
+        <item>
+            大部分程式語言都是以列為主的方式儲存陣列。在一個8x4的陣列(array) A裡，若每個元素需要兩單位的記憶體大小，且若A[0][0]的記憶體位址為 108 (十進制表示)，則A[1][2]的記憶體位址為何？
+        </item>
+
+        <item>
+            右側為一個計算n階層的函式，請問該如何修改才會得到正確的結果？
+        </item>
+
+        <item>
+            右側程式碼，執行時的輸出為何？
+        </item>
+
+        <item>
+            右側f()函式執行後所回傳的值為何？
+        </item>
+
+        <item>
+            右側f()函式 "a", "b", "c" 處需分別填入哪些數字，方能使得 f(4) 輸出 2468的結果？\n記得改扣 把()換成""
+        </item>
+
+        <item>
+            右側g(4)函式呼叫執行後，回傳值為何？
+        </item>
+
+        <item>
+            右側Mystery()函式else 部分運算式應為何，才能使得 Mystery(9) 的回傳值為34。
+        </item>
+    </string-array>
+
+    <string-array name="stem_10510">
         <item>q01</item>
     </string-array>
 
-    <string-array name="content_10510">
+    <string-array name="stem_10603">
         <item>q01</item>
     </string-array>
 
-    <string-array name="content_10603">
+
+    <string-array name="choice_10503">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+
+        <item>1</item>
+        <item>2</item>
+        <item>7</item>
+        <item>9</item>
+
+        <item>n1=33, n2=4</item>
+        <item>n1=33, n2=5</item>
+        <item>n1=34, n2=4</item>
+        <item>n1=34, n2=5</item>
+
+        <item>1275</item>
+        <item>20</item>
+        <item>1000</item>
+        <item>810</item>
+
+        <item>1000</item>
+        <item>3000</item>
+        <item>5000</item>
+        <item>10000</item>
+
+        <item>list[current].next = current ;</item>
+        <item>list[current].next = list[list[current].next].next ;</item>
+        <item>current = list[list[current].next].next ;</item>
+        <item>list[list[current].next].next = list[current].next ;</item>
+
+        <item>90</item>
+        <item>103</item>
+        <item>93</item>
+        <item>60</item>
+
+        <item>(a) f[i]=f[i-1]+f[i-2] (b) f[N]</item>
+        <item>(a) a = a + b (b) a</item>
+        <item>(a) b = a + b (b) b</item>
+        <item>(a) f[i]=f[i-1]+f[i-2] (b) f[i]</item>
+
+        <item>1</item>
+        <item>4</item>
+        <item>3</item>
+        <item>33</item>
+
+        <item>16</item>
+        <item>18</item>
+        <item>19</item>
+        <item>22</item>
+
+        <item>n+1</item>
+        <item>n</item>
+        <item>n-1</item>
+        <item>n-2</item>
+
+        <item>印出的數字最大的是4</item>
+        <item>f1一共被呼叫二次</item>
+        <item>f2一共被呼叫三次</item>
+        <item>數字2被印出兩次</item>
+
+        <item>k = i % j; \n i = j; \n j = k;</item>
+        <item>i = j; \n j = k; \n k = i % j;</item>
+        <item>i = j; \n j = i % k; \n k = i;</item>
+        <item>k = i; \n i = j; \n j = i % k;</item>
+
+        <item>bar: 6 \n bar: 1 \n bar: 8</item>
+        <item>bar: 6 \n foo: 1 \n bar: 3</item>
+        <item>bar: 1 \n foo: 1 \n bar: 8</item>
+        <item>bar: 6\n foo: 1 \n foo: 3</item>
+
+        <item>16</item>
+        <item>22</item>
+        <item>11</item>
+        <item>15</item>
+
+        <item>11</item>
+        <item>13</item>
+        <item>15</item>
+        <item>16</item>
+
+        <item>11 12 13 14 15 3</item>
+        <item>11 12 13 14 25 20</item>
+        <item>23 15 18 20 11 12</item>
+        <item>18 17 19 24 15 16</item>
+
+        <item>語法錯誤</item>
+        <item>語意錯誤</item>
+        <item>邏輯錯誤</item>
+        <item>以上皆是</item>
+
+        <item>120</item>
+        <item>124</item>
+        <item>128</item>
+        <item>以上皆非</item>
+
+        <item>第2行，改為 int fac = n;</item>
+        <item>第3行，改為if (n > 0) {</item>
+        <item>第4行，改為fac = n * fun(n+1);</item>
+        <item>第4行，改為fac = fac * fun(n-1);</item>
+
+        <item>0 2 4 6 8 10</item>
+        <item>0 1 2 3 4 5 6 7 8 9 10</item>
+        <item>0 1 3 5 7 9</item>
+        <item>0 1 3 5 7 9 11</item>
+
+        <item>1023</item>
+        <item>1024</item>
+        <item>2047</item>
+        <item>2048</item>
+
+        <item>1, 2, 1</item>
+        <item>0, 1, 2</item>
+        <item>0, 2, 1</item>
+        <item>1, 1, 1</item>
+
+        <item>6</item>
+        <item>11</item>
+        <item>13</item>
+        <item>14</item>
+
+        <item>x + Mystery(x-1)</item>
+        <item>x * Mystery(x-1)</item>
+        <item>Mystery(x-2) + Mystery(x+2)</item>
+        <item>Mystery(x-2) + Mystery(x-1)</item>
+    </string-array>
+
+    <string-array name="choice_10510">
         <item>q01</item>
     </string-array>
+
+    <string-array name="choice_10603">
+        <item>q01</item>
+    </string-array>
+
+
 </resources>
