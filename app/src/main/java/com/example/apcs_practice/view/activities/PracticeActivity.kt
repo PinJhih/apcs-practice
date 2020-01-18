@@ -1,5 +1,6 @@
 package com.example.apcs_practice.view.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -11,14 +12,14 @@ import kotlinx.android.synthetic.main.activity_practice.*
 class PracticeActivity : AppCompatActivity() {
 
     private var questions = ArrayList<Question>()
+    private lateinit var answers: CharArray
     private var questionNumber = 0
-    lateinit var answers: CharArray
 
     private fun setQuestions(session: Int) {
         val resId = IntArray(2)
         val arrRes = resources.obtainTypedArray(session)
 
-        for (i in 0 until arrRes.length()) {
+        for (i in 0 until 2) {
             resId[i] = arrRes.getResourceId(i, 0)
         }
 
@@ -44,8 +45,10 @@ class PracticeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_practice)
 
+        var session = 0
+
         intent?.extras?.let {
-            val session = it.getInt("session")
+            session = it.getInt("session")
             setQuestions(session)
         }
 
@@ -93,6 +96,9 @@ class PracticeActivity : AppCompatActivity() {
                 questionNumber = 0
             setView()
         }
+        btn_finish.setOnClickListener {
+            checkAnswer(session)
+        }
         //save the answer
         radioGroup.setOnCheckedChangeListener { _, i ->
             answers[questionNumber] = when (i) {
@@ -105,6 +111,11 @@ class PracticeActivity : AppCompatActivity() {
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        finish()
+    }
+
     private fun setView() {
         val choice = "A. " + questions[questionNumber].choice_a + "\n" +
                 "B. " + questions[questionNumber].choice_b + "\n" +
@@ -114,13 +125,15 @@ class PracticeActivity : AppCompatActivity() {
         tv_stem.text = questions[questionNumber].stem
         tv_choices.text = choice
         spinner_number.setSelection(questionNumber)
+        
+    }
 
-        when(answers[questionNumber]){
-            'A'->btn_choice_a.isChecked=true
-            'B'->btn_choice_b.isChecked=true
-            'C'->btn_choice_c.isChecked=true
-            'D'->btn_choice_d.isChecked=true
-            else-> radioGroup.clearCheck()
-        }
+    private fun checkAnswer(session: Int) {
+        val i = Intent(this, CheckAnswerActivity::class.java)
+        val b = Bundle()
+        b.putInt("session", session)
+        b.putString("answer", String(answers))
+        i.putExtras(b)
+        startActivityForResult(i, 1)
     }
 }
