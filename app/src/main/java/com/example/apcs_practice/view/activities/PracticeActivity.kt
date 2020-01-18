@@ -126,6 +126,13 @@ class PracticeActivity : AppCompatActivity() {
         tv_choices.text = choice
         spinner_number.setSelection(questionNumber)
         
+        when (answers[questionNumber]) {
+            'A' -> btn_choice_a.isChecked = true
+            'B' -> btn_choice_b.isChecked = true
+            'C' -> btn_choice_c.isChecked = true
+            'D' -> btn_choice_d.isChecked = true
+            else -> radioGroup.clearCheck()
+        }
     }
 
     private fun checkAnswer(session: Int) {
