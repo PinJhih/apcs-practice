@@ -125,7 +125,7 @@ class PracticeActivity : AppCompatActivity() {
         tv_stem.text = questions[questionNumber].stem
         tv_choices.text = choice
         spinner_number.setSelection(questionNumber)
-        
+
         when (answers[questionNumber]) {
             'A' -> btn_choice_a.isChecked = true
             'B' -> btn_choice_b.isChecked = true

@@ -29,9 +29,9 @@ class CheckAnswerActivity : AppCompatActivity() {
 
         val linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = RecyclerView.VERTICAL
-        recycler_check_answer.layoutManager = linearLayoutManager
+        rv_check_answer.layoutManager = linearLayoutManager
         adapter = CheckAnswerAdapter(this, myAnswer, correctAnswer)
-        recycler_check_answer.adapter = adapter
+        rv_check_answer.adapter = adapter
 
         for(i in 0 until myAnswer.count()){
             if(myAnswer[i] == correctAnswer[i])
