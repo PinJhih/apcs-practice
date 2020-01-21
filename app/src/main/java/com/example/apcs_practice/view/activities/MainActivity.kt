@@ -1,5 +1,6 @@
 package com.example.apcs_practice.view.activities
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -21,10 +22,22 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_session_select, R.id.navigation_histories, R.id.navigation_notifications
+                R.id.navigation_session_select,
+                R.id.navigation_histories,
+                R.id.navigation_notifications
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    fun checkAnswer(session: Int, answers: String) {
+
+        val i = Intent(this, CheckAnswerActivity::class.java)
+        val b = Bundle()
+        b.putInt("session", session)
+        b.putString("answer", answers)
+        i.putExtras(b)
+        startActivity(i)
     }
 }

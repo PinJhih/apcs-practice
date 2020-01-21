@@ -23,18 +23,21 @@
         <item>@array/stem_10503</item>
         <item>@array/choice_10503</item>
         <item>@string/correct_answer_10503</item>
+        <item>@string/session_10503</item>
     </integer-array>
 
     <integer-array name="res_10510">
         <item>@array/stem_10510</item>
         <item>@array/choice_10510</item>
         <item>@string/correct_answer_10510</item>
+        <item>@string/session_10510</item>
     </integer-array>
 
     <integer-array name="res_10603">
         <item>@array/stem_10603</item>
         <item>@array/choice_10603</item>
         <item>@string/correct_answer_10603</item>
+        <item>@string/session_10603</item>
     </integer-array>
 
     <string-array name="stem_10503">
@@ -51,6 +54,7 @@
             if敘述)，請問n1與n2之值為何?\n
             註： (low + high)/2 只取整數部分。
         </item>
+
 
         <item>
             經過運算後，右側程式的輸出為何？

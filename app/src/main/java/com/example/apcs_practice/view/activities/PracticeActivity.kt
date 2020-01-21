@@ -136,6 +136,7 @@ class PracticeActivity : AppCompatActivity() {
     }
 
     private fun checkAnswer(session: Int) {
+
         val i = Intent(this, CheckAnswerActivity::class.java)
         val b = Bundle()
         b.putInt("session", session)
@@ -143,4 +144,5 @@ class PracticeActivity : AppCompatActivity() {
         i.putExtras(b)
         startActivityForResult(i, 1)
     }
+
 }
