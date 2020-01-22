@@ -16,8 +16,7 @@
         android:label="@string/title_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.apcs_practice.view.fragments.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_setting"
+        android:name="com.example.apcs_practice.view.fragments.SettingFragment"
+        android:label="@string/title_notifications" />
 </navigation>

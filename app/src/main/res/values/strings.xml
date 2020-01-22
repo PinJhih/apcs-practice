@@ -8,7 +8,11 @@
     <string name="finish">結束</string>
     <string name="num_of_correct_answer">正確題數</string>
     <string name="number">10</string>
-
+    <string name="text_size">字型大小:</string>
+    <string name="dark_mode">深色模式:</string>
+    <string name="big">大</string>
+    <string name="mid">中</string>
+    <string name="small">小</string>
 
     <string name="session_10503">105年3月</string>
     <string name="session_10510">105年10月</string>

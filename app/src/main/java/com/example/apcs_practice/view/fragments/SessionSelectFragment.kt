@@ -34,10 +34,10 @@ class SessionSelectFragment : Fragment() {
         return root
     }
 
-    private fun startPractice(session:Int){
+    private fun startPractice(session: Int) {
         val intent = Intent(this.context, PracticeActivity::class.java)
 
-        intent.putExtra("session",session)
+        intent.putExtra("session", session)
         startActivity(intent)
     }
 

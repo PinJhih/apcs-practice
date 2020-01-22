@@ -1,6 +1,8 @@
 package com.example.apcs_practice.view.activities
 
+import android.app.Activity
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +11,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.apcs_practice.R
+
+lateinit var settings: SharedPreferences
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,11 +28,13 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.navigation_session_select,
                 R.id.navigation_histories,
-                R.id.navigation_notifications
+                R.id.navigation_setting
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        settings = getSharedPreferences("settings", Activity.MODE_PRIVATE)
     }
 
     fun checkAnswer(session: Int, answers: String) {
