@@ -16,7 +16,7 @@ class HistoryDBHelper(
     }
 
     override fun onCreate(db: SQLiteDatabase) {
-        db.execSQL("CREATE TABLE histories (id text PRIMARY KEY,date text NOT NULL,session integer NOT NULL, myAnswer text NOT NULL)")
+        db.execSQL("CREATE TABLE histories (id text PRIMARY KEY,date text NOT NULL,title text NOT NULL,session integer NOT NULL, myAnswer text NOT NULL)")
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {

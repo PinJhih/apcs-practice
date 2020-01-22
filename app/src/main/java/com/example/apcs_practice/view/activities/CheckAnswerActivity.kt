@@ -95,8 +95,8 @@ class CheckAnswerActivity : AppCompatActivity() {
         val id = "${System.currentTimeMillis()}"
 
         db.execSQL(
-            "INSERT INTO histories(id,date,session,title,myAnswer) VALUES(?,?,?,?,?)",
-            arrayOf<Any?>(id, date, title, session, title, myAnswer)
+            "INSERT INTO histories(id,date,title,session,myAnswer) VALUES(?,?,?,?,?)",
+            arrayOf<Any?>(id, date, title, session, myAnswer)
         )
     }
 

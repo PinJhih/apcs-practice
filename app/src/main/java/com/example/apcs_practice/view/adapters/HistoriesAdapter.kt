@@ -29,7 +29,7 @@ class HistoriesAdapter(
         val itemView = holder.itemView
 
         itemView.tv_date.text = histories[position].date
-        itemView.tv_session.text = histories[position].session.toString()
+        itemView.tv_session.text = histories[position].title
 
         itemView.layout_history.setOnClickListener {
             val session = histories[position].session
