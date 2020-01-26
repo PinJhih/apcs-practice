@@ -1,12 +1,12 @@
 package com.example.apcs_practice.view.adapters
 
-import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apcs_practice.R
+import com.example.apcs_practice.view.activities.CheckAnswerActivity
 import kotlinx.android.synthetic.main.item_check_answer.view.*
 
 class CheckAnswerAdapter(
@@ -33,12 +33,9 @@ class CheckAnswerAdapter(
         itemView.tv_my_answer.text = myAnswer[position].toString()
 
         itemView.layout_check_answer.setOnClickListener {
-            AlertDialog.Builder(context)
-                .setTitle("抬頭")
-                .setPositiveButton("OK") { _, _ ->
-                    TODO("review the question")
-                }
-                .show()
+            (context as CheckAnswerActivity).reviewQuestion(position)
         }
     }
+
+
 }

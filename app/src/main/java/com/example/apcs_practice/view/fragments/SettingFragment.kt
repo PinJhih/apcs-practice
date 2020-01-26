@@ -76,5 +76,4 @@ class SettingFragment : Fragment() {
 
         settingEditor.commit()
     }
-
 }

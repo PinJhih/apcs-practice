@@ -1,5 +1,6 @@
 package com.example.apcs_practice.view.activities
 
+import android.app.AlertDialog
 import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -30,24 +31,23 @@ class CheckAnswerActivity : AppCompatActivity() {
 
         db = HistoryDBHelper(this).writableDatabase
 
-        var session: Int
+        val session: Int
         intent?.extras?.let {
             myAnswer = it.getString("answer")!!
             session = it.getInt("session")
             getQuestion(session)
         }
 
+        //init RecyclerView
         val linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = RecyclerView.VERTICAL
         rv_check_answer.layoutManager = linearLayoutManager
         adapter = CheckAnswerAdapter(this, myAnswer, correctAnswer)
         rv_check_answer.adapter = adapter
 
-        for (i in 0 until myAnswer.count()) {
+        for (i in 0 until myAnswer.count())
             if (myAnswer[i] == correctAnswer[i])
                 numberOfCorrectAnswer++
-        }
-
         tv_num_correct_answers.text = "$numberOfCorrectAnswer"
     }
 
@@ -104,5 +104,27 @@ class CheckAnswerActivity : AppCompatActivity() {
         super.onDestroy()
 
         db.close()
+    }
+
+    fun reviewQuestion(questionNumber: Int) {
+        val msg = questions[questionNumber].stem + "/n" +
+                "A. ${questions[questionNumber].choice_a}" + "/n" +
+                "B. ${questions[questionNumber].choice_b}" + "/n" +
+                "C. ${questions[questionNumber].choice_c}" + "/n" +
+                "D. ${questions[questionNumber].choice_d}" + "/n" +
+                "正解: ${correctAnswer[questionNumber]}"
+
+        AlertDialog.Builder(this)
+            .setTitle("第${questionNumber + 1}題")
+            .setMessage(msg)
+            .setPositiveButton("觀看詳解") { _, _ ->
+                showDetailed()
+            }
+            .setNeutralButton("關閉") { _, _ -> }
+            .show()
+    }
+
+    private fun showDetailed(){
+        TODO("Show detailed by WebView")
     }
 }
