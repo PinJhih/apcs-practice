@@ -36,6 +36,4 @@ class CheckAnswerAdapter(
             (context as CheckAnswerActivity).reviewQuestion(position)
         }
     }
-
-
 }

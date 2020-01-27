@@ -1,6 +1,7 @@
 package com.example.apcs_practice.view.activities
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -52,15 +53,15 @@ class CheckAnswerActivity : AppCompatActivity() {
     }
 
     private fun getQuestion(session: Int) {
-        val resId = IntArray(4)
+        val resId = IntArray(5)
         val arrRes = resources.obtainTypedArray(session)
-
         for (i in 0 until arrRes.length()) {
             resId[i] = arrRes.getResourceId(i, 0)
         }
 
         val arrStem = resources.obtainTypedArray(resId[0])
         val arrChoice = resources.obtainTypedArray(resId[1])
+        val arrUrl = resources.obtainTypedArray(resId[4])
         correctAnswer = resources.getString(resId[2])
 
         for (i in 0 until arrStem.length()) {
@@ -70,13 +71,14 @@ class CheckAnswerActivity : AppCompatActivity() {
             q.choice_b = arrChoice.getString(i * 4 + 1)!!
             q.choice_c = arrChoice.getString(i * 4 + 2)!!
             q.choice_d = arrChoice.getString(i * 4 + 3)!!
-
+            q.url = arrUrl.getString(i)!!
             questions.add(q)
         }
 
         arrRes.recycle()
         arrStem.recycle()
         arrChoice.recycle()
+        arrUrl.recycle()
 
         val title = resources.getString(resId[3])
         addHistory(session, title)
@@ -87,11 +89,10 @@ class CheckAnswerActivity : AppCompatActivity() {
         cal.get(Calendar.YEAR)
         cal.get(Calendar.MONTH)
         cal.get(Calendar.DAY_OF_MONTH)
-
         val myFormat = "yyyy/MM/dd"
         val sdf = SimpleDateFormat(myFormat, Locale.TAIWAN)
-
         val date = sdf.format(cal.time)
+
         val id = "${System.currentTimeMillis()}"
 
         db.execSQL(
@@ -102,29 +103,30 @@ class CheckAnswerActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-
         db.close()
     }
 
     fun reviewQuestion(questionNumber: Int) {
-        val msg = questions[questionNumber].stem + "/n" +
-                "A. ${questions[questionNumber].choice_a}" + "/n" +
-                "B. ${questions[questionNumber].choice_b}" + "/n" +
-                "C. ${questions[questionNumber].choice_c}" + "/n" +
-                "D. ${questions[questionNumber].choice_d}" + "/n" +
+        val msg = questions[questionNumber].stem + "\n" +
+                "A. ${questions[questionNumber].choice_a}\n" +
+                "B. ${questions[questionNumber].choice_b}\n" +
+                "C. ${questions[questionNumber].choice_c}\n" +
+                "D. ${questions[questionNumber].choice_d}\n" +
                 "正解: ${correctAnswer[questionNumber]}"
 
         AlertDialog.Builder(this)
             .setTitle("第${questionNumber + 1}題")
             .setMessage(msg)
             .setPositiveButton("觀看詳解") { _, _ ->
-                showDetailed()
+                showDetailed(questionNumber)
             }
-            .setNeutralButton("關閉") { _, _ -> }
+            .setNegativeButton("關閉") { _, _ -> }
             .show()
     }
 
-    private fun showDetailed(){
-        TODO("Show detailed by WebView")
+    private fun showDetailed(questionNumber: Int) {
+        val i = Intent(this, DetailedActivity::class.java)
+        i.putExtra("url",questions[questionNumber].url)
+        startActivity(i)
     }
 }
