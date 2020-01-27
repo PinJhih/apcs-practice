@@ -126,7 +126,8 @@ class CheckAnswerActivity : AppCompatActivity() {
 
     private fun showDetailed(questionNumber: Int) {
         val i = Intent(this, DetailedActivity::class.java)
-        i.putExtra("url",questions[questionNumber].url)
+        println("~~~" + questions[questionNumber].url)
+        i.putExtra("url", questions[questionNumber].url)
         startActivity(i)
     }
 }
