@@ -18,17 +18,10 @@ class SettingFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View?{
-        val root = inflater.inflate(R.layout.fragment_setting, container, false)
-
-        return root
-    }
+    ): View= inflater.inflate(R.layout.fragment_setting, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        if(settings.getBoolean("darkMode",false))
-            switch_dark_mode.isChecked = true
 
         switch_dark_mode.setOnClickListener {
             settingEditor.putBoolean("darkMode", switch_dark_mode.isChecked)
@@ -36,20 +29,13 @@ class SettingFragment : Fragment() {
             setView()
         }
 
-        /*
-        radioGroup_text_size.setOnCheckedChangeListener { _, i ->
-            when (i) {
-                btn_small.id -> settingEditor.putString("textSize", "small")
-                btn_mid.id -> settingEditor.putString("textSize", "mid")
-                else -> settingEditor.putString("textSize", "big")
-            }
-            setView()
-        }
-        */
         setView()
     }
 
     private fun setView() {
+        if(settings.getBoolean("darkMode",false))
+            switch_dark_mode.isChecked = true
+
         var backgroundColor = Color.parseColor("#ffffff")
         var textColor = Color.parseColor("#000000")
         if (settings.getBoolean("darkMode", false)) {
@@ -57,30 +43,7 @@ class SettingFragment : Fragment() {
             textColor = Color.parseColor("#ffffff")
         }
         layout_setting.setBackgroundColor(backgroundColor)
-
-        tv_text_size.setTextColor(textColor)
-        btn_big.setTextColor(textColor)
-        btn_mid.setTextColor(textColor)
-        btn_small.setTextColor(textColor)
         switch_dark_mode.setTextColor(textColor)
-
-        /*
-        var textSize = btn_mid.textSize
-        when (settings.getFloat("textSize", btn_mid.textSize)) {
-            btn_big.textSize -> {
-                btn_big.isChecked = true
-                textSize = btn_big.textSize
-            }
-            btn_small.textSize -> {
-                btn_small.isChecked = true
-                textSize = btn_small.textSize
-            }
-            else -> btn_mid.isChecked = true
-        }
-
-        tv_text_size.textSize = textSize
-        switch_dark_mode.textSize = textSize
-        */
     }
 
     override fun onDestroy() {
