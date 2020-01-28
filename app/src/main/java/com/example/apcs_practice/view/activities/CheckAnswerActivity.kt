@@ -86,7 +86,7 @@ class CheckAnswerActivity : AppCompatActivity() {
     }
 
     private fun addHistory(session: Int, title: String) {
-        val db = HistoryDBHelper(this).writableDatabase
+        db = HistoryDBHelper(this).writableDatabase
 
         val cal = Calendar.getInstance()
         cal.get(Calendar.YEAR)
