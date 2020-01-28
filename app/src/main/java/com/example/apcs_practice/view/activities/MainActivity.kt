@@ -11,6 +11,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.apcs_practice.R
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
 
 lateinit var settings: SharedPreferences
 
@@ -36,7 +38,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun checkAnswer(session: Int, answers: String) {
-
         val i = Intent(this, CheckAnswerActivity::class.java)
         val b = Bundle()
         b.putInt("session", session)
