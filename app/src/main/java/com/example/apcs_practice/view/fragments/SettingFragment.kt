@@ -18,15 +18,25 @@ class SettingFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View?{
         val root = inflater.inflate(R.layout.fragment_setting, container, false)
-        setView()
+
+        return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        if(settings.getBoolean("darkMode",false))
+            switch_dark_mode.isChecked = true
 
         switch_dark_mode.setOnClickListener {
             settingEditor.putBoolean("darkMode", switch_dark_mode.isChecked)
+            settingEditor.commit()
             setView()
         }
 
+        /*
         radioGroup_text_size.setOnCheckedChangeListener { _, i ->
             when (i) {
                 btn_small.id -> settingEditor.putString("textSize", "small")
@@ -35,8 +45,8 @@ class SettingFragment : Fragment() {
             }
             setView()
         }
-
-        return root
+        */
+        setView()
     }
 
     private fun setView() {
@@ -54,13 +64,14 @@ class SettingFragment : Fragment() {
         btn_small.setTextColor(textColor)
         switch_dark_mode.setTextColor(textColor)
 
+        /*
         var textSize = btn_mid.textSize
-        when (settings.getString("textSize", "mid")) {
-            "big" -> {
+        when (settings.getFloat("textSize", btn_mid.textSize)) {
+            btn_big.textSize -> {
                 btn_big.isChecked = true
                 textSize = btn_big.textSize
             }
-            "small" -> {
+            btn_small.textSize -> {
                 btn_small.isChecked = true
                 textSize = btn_small.textSize
             }
@@ -69,6 +80,7 @@ class SettingFragment : Fragment() {
 
         tv_text_size.textSize = textSize
         switch_dark_mode.textSize = textSize
+        */
     }
 
     override fun onDestroy() {

@@ -1,6 +1,7 @@
 package com.example.apcs_practice.view.activities
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -109,10 +110,14 @@ class PracticeActivity : AppCompatActivity() {
                 else -> 'x'
             }
         }
+
+        if(settings.getBoolean("darkMode",false))
+            setDarkMode()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
         finish()
     }
 
@@ -145,4 +150,16 @@ class PracticeActivity : AppCompatActivity() {
         startActivityForResult(i, 1)
     }
 
+    private fun setDarkMode(){
+        val backgroundColor = Color.parseColor("#000000")
+        val textColor = Color.parseColor("#ffffff")
+
+        tv_stem.setTextColor(textColor)
+        tv_choices.setTextColor(textColor)
+        btn_choice_a.setTextColor(textColor)
+        btn_choice_b.setTextColor(textColor)
+        btn_choice_c.setTextColor(textColor)
+        btn_choice_d.setTextColor(textColor)
+        layout_practice.setBackgroundColor(backgroundColor)
+    }
 }

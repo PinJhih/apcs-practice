@@ -3,6 +3,7 @@ package com.example.apcs_practice.view.activities
 import android.app.AlertDialog
 import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,7 +12,7 @@ import com.example.apcs_practice.R
 import com.example.apcs_practice.database.HistoryDBHelper
 import com.example.apcs_practice.models.Question
 import com.example.apcs_practice.view.adapters.CheckAnswerAdapter
-import kotlinx.android.synthetic.main.activity_answer_check.*
+import kotlinx.android.synthetic.main.activity_check_answer.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -25,12 +26,9 @@ class CheckAnswerActivity : AppCompatActivity() {
     private var myAnswer = ""
     private var numberOfCorrectAnswer = 0
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_answer_check)
-
-        db = HistoryDBHelper(this).writableDatabase
+        setContentView(R.layout.activity_check_answer)
 
         val session: Int
         intent?.extras?.let {
@@ -50,6 +48,9 @@ class CheckAnswerActivity : AppCompatActivity() {
             if (myAnswer[i] == correctAnswer[i])
                 numberOfCorrectAnswer++
         tv_num_correct_answers.text = "$numberOfCorrectAnswer"
+
+        if(settings.getBoolean("darkMode",false))
+            setDarkMode()
     }
 
     private fun getQuestion(session: Int) {
@@ -85,6 +86,8 @@ class CheckAnswerActivity : AppCompatActivity() {
     }
 
     private fun addHistory(session: Int, title: String) {
+        val db = HistoryDBHelper(this).writableDatabase
+
         val cal = Calendar.getInstance()
         cal.get(Calendar.YEAR)
         cal.get(Calendar.MONTH)
@@ -92,7 +95,6 @@ class CheckAnswerActivity : AppCompatActivity() {
         val myFormat = "yyyy/MM/dd"
         val sdf = SimpleDateFormat(myFormat, Locale.TAIWAN)
         val date = sdf.format(cal.time)
-
         val id = "${System.currentTimeMillis()}"
 
         db.execSQL(
@@ -126,8 +128,16 @@ class CheckAnswerActivity : AppCompatActivity() {
 
     private fun showDetailed(questionNumber: Int) {
         val i = Intent(this, DetailedActivity::class.java)
-        println("~~~" + questions[questionNumber].url)
         i.putExtra("url", questions[questionNumber].url)
         startActivity(i)
+    }
+
+    private fun setDarkMode(){
+        val backgroundColor = Color.parseColor("#000000")
+        val textColor = Color.parseColor("#ffffff")
+
+        tv_num_correct_answers.setTextColor(textColor)
+        tv_title_num_correct_answers.setTextColor(textColor)
+        layout_check_answer.setBackgroundColor(backgroundColor)
     }
 }

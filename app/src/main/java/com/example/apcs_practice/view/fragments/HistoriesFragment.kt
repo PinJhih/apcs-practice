@@ -1,6 +1,7 @@
 package com.example.apcs_practice.view.fragments
 
 import android.database.sqlite.SQLiteDatabase
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.apcs_practice.R
 import com.example.apcs_practice.database.HistoryDBHelper
 import com.example.apcs_practice.models.History
+import com.example.apcs_practice.view.activities.settings
 import com.example.apcs_practice.view.adapters.HistoriesAdapter
 import kotlinx.android.synthetic.main.fragment_histories.*
 
@@ -36,6 +38,11 @@ class HistoriesFragment : Fragment() {
         linearLayoutManager.orientation = RecyclerView.VERTICAL
         rv_history.layoutManager = linearLayoutManager
         rv_history.adapter = adapter
+
+        if(settings.getBoolean("darkMode",false)){
+            val backgroundColor = Color.parseColor("#000000")
+            layout_history.setBackgroundColor(backgroundColor)
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -58,7 +65,6 @@ class HistoriesFragment : Fragment() {
             data.moveToNext()
             adapter.notifyDataSetChanged()
         }
-
         data.close()
     }
 
