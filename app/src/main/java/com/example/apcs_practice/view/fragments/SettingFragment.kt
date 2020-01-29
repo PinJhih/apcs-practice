@@ -28,6 +28,26 @@ class SettingFragment : Fragment() {
             settingEditor.commit()
             setView()
         }
+        switch_notification_test.setOnClickListener {
+            settingEditor.putBoolean("notificationTest", switch_dark_mode.isChecked)
+            settingEditor.commit()
+            setView()
+        }
+        switch_sign_up_start.setOnClickListener {
+            settingEditor.putBoolean("notificationSignUpStart", switch_dark_mode.isChecked)
+            settingEditor.commit()
+            setView()
+        }
+        switch_sign_up_end.setOnClickListener {
+            settingEditor.putBoolean("notificationSignUpEnd", switch_dark_mode.isChecked)
+            settingEditor.commit()
+            setView()
+        }
+        switch_query_results.setOnClickListener {
+            settingEditor.putBoolean("queryResultsStart", switch_dark_mode.isChecked)
+            settingEditor.commit()
+            setView()
+        }
 
         setView()
     }
@@ -35,6 +55,14 @@ class SettingFragment : Fragment() {
     private fun setView() {
         if(settings.getBoolean("darkMode",false))
             switch_dark_mode.isChecked = true
+        if(settings.getBoolean("notificationTest",false))
+            switch_notification_test.isChecked = true
+        if(settings.getBoolean("notificationSignUpStart",false))
+            switch_sign_up_start.isChecked = true
+        if(settings.getBoolean("notificationSignUpEnd",false))
+            switch_sign_up_end.isChecked = true
+        if(settings.getBoolean("queryResultsStart",false))
+            switch_query_results.isChecked = true
 
         var backgroundColor = Color.parseColor("#ffffff")
         var textColor = Color.parseColor("#000000")

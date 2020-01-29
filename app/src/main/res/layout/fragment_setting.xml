@@ -22,18 +22,76 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="500dp">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="外觀"
+                    android:textColor="@android:color/black"
+                    android:textSize="10sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <Switch
                     android:id="@+id/switch_dark_mode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
                     android:text="@string/dark_mode"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toStartOf="@+id/textView"
+                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="通知"
+                    android:textColor="@android:color/black"
+                    android:textSize="10sp"
+                    app:layout_constraintStart_toStartOf="@+id/textView"
+                    app:layout_constraintTop_toBottomOf="@+id/switch_dark_mode" />
+
+                <Switch
+                    android:id="@+id/switch_notification_test"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="測驗日通知:"
+                    app:layout_constraintStart_toStartOf="@+id/switch_dark_mode"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+                <Switch
+                    android:id="@+id/switch_sign_up_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="報名開始:"
+                    app:layout_constraintStart_toStartOf="@+id/switch_notification_test"
+                    app:layout_constraintTop_toBottomOf="@+id/switch_notification_test" />
+
+                <Switch
+                    android:id="@+id/switch_sign_up_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="報名結束:"
+                    app:layout_constraintStart_toStartOf="@+id/switch_sign_up_start"
+                    app:layout_constraintTop_toBottomOf="@+id/switch_sign_up_start" />
+
+                <Switch
+                    android:id="@+id/switch_query_results"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="結果查詢:"
+                    app:layout_constraintStart_toStartOf="@+id/switch_sign_up_end"
+                    app:layout_constraintTop_toBottomOf="@+id/switch_sign_up_end" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

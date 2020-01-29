@@ -49,11 +49,7 @@ class NotificationService : Service() {
             manager.notify(0, notification)
         }
 
-        if (settings.getBoolean(
-                "notificationSignUp",
-                true
-            ) && date == dates.signUpStart
-        ) {
+        if (settings.getBoolean("notificationSignUpStart", true) && date == dates.signUpStart) {
             val notification = Notification.Builder(this, "Ch1")
                 .setSmallIcon(R.drawable.notification_icon_background)
                 .setContentTitle("APCS開始報名")
@@ -63,11 +59,7 @@ class NotificationService : Service() {
             manager.notify(1, notification)
         }
 
-        if (settings.getBoolean(
-                "notificationSignUp",
-                true
-            ) && date == dates.signUpDeadline
-        ) {
+        if (settings.getBoolean("notificationSignUpEnd", true) && date == dates.signUpDeadline) {
             val notification = Notification.Builder(this, "Ch1")
                 .setSmallIcon(R.drawable.notification_icon_background)
                 .setContentTitle("APCS報名最後一天")
@@ -76,7 +68,15 @@ class NotificationService : Service() {
                 .build()
             manager.notify(2, notification)
         }
-        Thread.sleep(600000)
+        if (settings.getBoolean("queryResultsStart", true) && date == dates.queryResults) {
+            val notification = Notification.Builder(this, "Ch1")
+                .setSmallIcon(R.drawable.notification_icon_background)
+                .setContentTitle("成績查詢開始")
+                .setContentText("APCS${dates.test}場次開放查詢")
+                .setAutoCancel(true)
+                .build()
+            manager.notify(3, notification)
+        }
     }
 
     override fun onBind(intent: Intent): IBinder? {
