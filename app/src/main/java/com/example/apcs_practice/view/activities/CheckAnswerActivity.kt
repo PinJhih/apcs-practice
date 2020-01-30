@@ -21,6 +21,7 @@ class CheckAnswerActivity : AppCompatActivity() {
 
     private lateinit var db: SQLiteDatabase
     private lateinit var adapter: CheckAnswerAdapter
+    private var title = ""
     private var questions = ArrayList<Question>()
     private var correctAnswer = ""
     private var myAnswer = ""
@@ -49,7 +50,7 @@ class CheckAnswerActivity : AppCompatActivity() {
                 numberOfCorrectAnswer++
         tv_num_correct_answers.text = "$numberOfCorrectAnswer"
 
-        if(settings.getBoolean("darkMode",false))
+        if (settings.getBoolean("darkMode", false))
             setDarkMode()
     }
 
@@ -81,11 +82,11 @@ class CheckAnswerActivity : AppCompatActivity() {
         arrChoice.recycle()
         arrUrl.recycle()
 
-        val title = resources.getString(resId[3])
-        addHistory(session, title)
+        title = resources.getString(resId[3])
+        addHistory(session)
     }
 
-    private fun addHistory(session: Int, title: String) {
+    private fun addHistory(session: Int) {
         db = HistoryDBHelper(this).writableDatabase
 
         val cal = Calendar.getInstance()
@@ -128,11 +129,13 @@ class CheckAnswerActivity : AppCompatActivity() {
 
     private fun showDetailed(questionNumber: Int) {
         val i = Intent(this, DetailedActivity::class.java)
-        i.putExtra("url", questions[questionNumber].url)
+        val id = title+String.format("%02d",questionNumber+1)
+
+        i.putExtra("detailedId",id)
         startActivity(i)
     }
 
-    private fun setDarkMode(){
+    private fun setDarkMode() {
         val backgroundColor = Color.parseColor("#000000")
         val textColor = Color.parseColor("#ffffff")
 
