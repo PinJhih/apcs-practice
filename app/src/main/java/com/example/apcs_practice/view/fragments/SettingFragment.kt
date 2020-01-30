@@ -18,7 +18,7 @@ class SettingFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View= inflater.inflate(R.layout.fragment_setting, container, false)
+    ): View = inflater.inflate(R.layout.fragment_setting, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,37 +31,33 @@ class SettingFragment : Fragment() {
         switch_notification_test.setOnClickListener {
             settingEditor.putBoolean("notificationTest", switch_dark_mode.isChecked)
             settingEditor.commit()
-            setView()
         }
         switch_sign_up_start.setOnClickListener {
             settingEditor.putBoolean("notificationSignUpStart", switch_dark_mode.isChecked)
             settingEditor.commit()
-            setView()
         }
         switch_sign_up_end.setOnClickListener {
             settingEditor.putBoolean("notificationSignUpEnd", switch_dark_mode.isChecked)
             settingEditor.commit()
-            setView()
         }
         switch_query_results.setOnClickListener {
             settingEditor.putBoolean("queryResultsStart", switch_dark_mode.isChecked)
             settingEditor.commit()
-            setView()
         }
 
         setView()
     }
 
     private fun setView() {
-        if(settings.getBoolean("darkMode",false))
+        if (settings.getBoolean("darkMode", false))
             switch_dark_mode.isChecked = true
-        if(settings.getBoolean("notificationTest",false))
+        if (settings.getBoolean("notificationTest", false))
             switch_notification_test.isChecked = true
-        if(settings.getBoolean("notificationSignUpStart",false))
+        if (settings.getBoolean("notificationSignUpStart", false))
             switch_sign_up_start.isChecked = true
-        if(settings.getBoolean("notificationSignUpEnd",false))
+        if (settings.getBoolean("notificationSignUpEnd", false))
             switch_sign_up_end.isChecked = true
-        if(settings.getBoolean("queryResultsStart",false))
+        if (settings.getBoolean("queryResultsStart", false))
             switch_query_results.isChecked = true
 
         var backgroundColor = Color.parseColor("#ffffff")

@@ -7,7 +7,7 @@ import android.app.Service
 import android.content.Intent
 import android.os.IBinder
 import com.example.apcs_practice.R
-import com.example.apcs_practice.models.Dates
+import com.example.apcs_practice.models.TestInfo
 import com.example.apcs_practice.view.activities.settings
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
@@ -21,12 +21,12 @@ class NotificationService : Service() {
         val fireStore = FirebaseFirestore.getInstance()
         fireStore.collection("test_info").document("dates")
             .addSnapshotListener { querySnapshot, _ ->
-                val dates: Dates = querySnapshot!!.toObject(Dates::class.java)!!
+                val dates = querySnapshot!!.toObject(TestInfo::class.java)!!
                 sendNotification(dates)
             }
     }
 
-    private fun sendNotification(dates: Dates) {
+    private fun sendNotification(dates: TestInfo) {
         val channel = NotificationChannel("Ch1", "APCS", NotificationManager.IMPORTANCE_HIGH)
         val manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
         manager.createNotificationChannel(channel)
