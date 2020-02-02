@@ -1,4 +1,4 @@
-<resources>
+﻿<resources>
     <string name="app_name">APCS觀念練習</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
@@ -13,11 +13,9 @@
     <string name="big">大</string>
     <string name="mid">中</string>
     <string name="small">小</string>
-
     <string name="session_10503">105年3月</string>
     <string name="session_10510">105年10月</string>
     <string name="session_10603">106年3月</string>
-
     <string name="choice_a">A</string>
     <string name="choice_b">B</string>
     <string name="choice_c">C</string>
@@ -48,118 +46,87 @@
     </integer-array>
 
     <string-array name="stem_10503">
-        <item>
-            右側程式正確的輸出應該如下：\n\t\t\t\t\t*\n\t\t\t\t***\n\t\t\t*****\n\t\t*******\n\t*********\n在不修改右側程式之第4行及第7行程式碼的前提下，最少需修改幾行程式碼以得到正確輸出？
-        </item>
-
-        <item>
-            給定一陣列a[10]={ 1, 3, 9, 2, 5, 8, 4, 9, 6, 7 }，i.e., a[0]=1,a[1]=3, …, a[8]=6, a[9]=7，以f(a, 10)呼叫執行右側函式後，回傳值為何？
-        </item>
-
-        <item>
-            給定一整數陣列a[0]、a[1]、…、a[99]且a[k]=3k+1，以value=100呼叫以下兩函式，假設函式f1及f2之while迴圈主體分別執行n1與n2次 (i.e, 計算if敘述執行次數，不包含 else
-            if敘述)，請問n1與n2之值為何?\n
-            註： (low + high)/2 只取整數部分。
-        </item>
-
-
-        <item>
-            經過運算後，右側程式的輸出為何？
-        </item>
-
-        <item>
-            函數f定義如下，如果呼叫f(1000)，指令sum=sum+i被執行的次數最接近下列何者？
-        </item>
-
-        <item>
-            (記得改!!!)List是一個陣列，裡面的元素是element，它的定義如右。List中的每一個element利用next這個整數變數來記錄下一個element在陣列中的位置，如果沒有下一個element，next就會記錄-1。所有的element串成了一個串列
-            (linked list)。例如在list中有三筆資料
-        </item>
-
-        <item>
-            請問以a(13,15)呼叫右側a()函式，函式執行完後其回傳值為何？
-        </item>
-
-        <item>
-            一個費式數列定義第一個數為0第二個數為1之後的每個數都等於前兩個數相加，如下所示:0、1、1、2、3、5、8、13、21、34、55、89…。右列的程式用以計算第N個(N≥2)費式數列的數值，請問 (a) 與 (b)
-            兩個空格的敘述(statement)應該為何？
-        </item>
-
-        <item>
-            請問右側程式輸出為何？
-        </item>
-
-        <item>
-            給定右側 g() 函式，g(13) 回傳值為何？
-        </item>
-
-        <item>
-            定義 a[n] 為一陣列 (array)，陣列元素的指標為0至n-1。若要將陣列中a[0]的元素移到a[n-1]，右側程式片段空白處該填入何運算式？
-        </item>
-
-        <item>
-            給定右側函式 f1() 及 f2()。f1(1)運算過程中，以下敘述何者為錯？
-        </item>
-
-        <item>
-            右側程式片段擬以輾轉除法求 i 與 j 的最大公因數。請問while迴圈內容何者正確？
-        </item>
-
-        <item>
-            右側程式輸出為何？
-        </item>
-
-        <item>
-            若以f(22)呼叫右側f()函式，總共會印出多少數字？
-        </item>
-
-        <item>
-            右側程式執行過後所輸出數值為何？
-        </item>
-
-        <item>
-            右側程式片段主要功能為：輸入六個整數，檢測並印出最後一個數字是否為六個數字中最小的值。然而，這個程式是錯誤的。請問以下哪一組測試資料可以測試出程式有誤？
-        </item>
-
-        <item>
-            程式編譯器可以發現下列哪種錯誤?
-        </item>
-
-        <item>
-            大部分程式語言都是以列為主的方式儲存陣列。在一個8x4的陣列(array) A裡，若每個元素需要兩單位的記憶體大小，且若A[0][0]的記憶體位址為 108 (十進制表示)，則A[1][2]的記憶體位址為何？
-        </item>
-
-        <item>
-            右側為一個計算n階層的函式，請問該如何修改才會得到正確的結果？
-        </item>
-
-        <item>
-            右側程式碼，執行時的輸出為何？
-        </item>
-
-        <item>
-            右側f()函式執行後所回傳的值為何？
-        </item>
-
-        <item>
-            右側f()函式 "a", "b", "c" 處需分別填入哪些數字，方能使得 f(4) 輸出 2468的結果？\n記得改扣 把()換成""
-        </item>
-
-        <item>
-            右側g(4)函式呼叫執行後，回傳值為何？
-        </item>
-
-        <item>
-            右側Mystery()函式else 部分運算式應為何，才能使得 Mystery(9) 的回傳值為34。
-        </item>
+        <item>右側程式正確的輸出應該如下：\n\t\t\t\t\t*\n\t\t\t\t***\n\t\t\t*****\n\t\t*******\n\t*********\n在不修改右側程式之第4行及第7行程式碼的前提下，最少需修改幾行程式碼以得到正確輸出？</item>
+        <item>給定一陣列a[10]={ 1, 3, 9, 2, 5, 8, 4, 9, 6, 7 }，i.e., a[0]=1,a[1]=3, …, a[8]=6, a[9]=7，以f(a, 10)呼叫執行右側函式後，回傳值為何？</item>
+        <item>給定一整數陣列a[0]、a[1]、…、a[99]且a[k]=3k+1，以value=100呼叫以下兩函式，假設函式f1及f2之while迴圈主體分別執行n1與n2次 (i.e, 計算if敘述執行次數，不包含 else if敘述)，請問n1與n2之值為何?\n註： (low + high)/2 只取整數部分。</item>
+        <item>經過運算後，右側程式的輸出為何？</item>
+        <item>函數f定義如下，如果呼叫f(1000)，指令sum=sum+i被執行的次數最接近下列何者？</item>
+        <item>(記得改!!!)List是一個陣列，裡面的元素是element，它的定義如右。List中的每一個element利用next這個整數變數來記錄下一個element在陣列中的位置，如果沒有下一個element，next就會記錄-1。所有的element串成了一個串列(linked list)。例如在list中有三筆資料</item>
+        <item>請問以a(13,15)呼叫右側a()函式，函式執行完後其回傳值為何？</item>
+        <item>一個費式數列定義第一個數為0第二個數為1之後的每個數都等於前兩個數相加，如下所示:0、1、1、2、3、5、8、13、21、34、55、89…。右列的程式用以計算第N個(N≥2)費式數列的數值，請問 (a) 與 (b) 兩個空格的敘述(statement)應該為何？</item>
+        <item>請問右側程式輸出為何？</item>
+        <item>給定右側 g() 函式，g(13) 回傳值為何？</item>
+        <item>定義 a[n] 為一陣列 (array)，陣列元素的指標為0至n-1。若要將陣列中a[0]的元素移到a[n-1]，右側程式片段空白處該填入何運算式？</item>
+        <item>給定右側函式 f1() 及 f2()。f1(1)運算過程中，以下敘述何者為錯？</item>
+        <item>右側程式片段擬以輾轉除法求 i 與 j 的最大公因數。請問while迴圈內容何者正確？</item>
+        <item>右側程式輸出為何？</item>
+        <item>若以f(22)呼叫右側f()函式，總共會印出多少數字？</item>
+        <item>右側程式執行過後所輸出數值為何？</item>
+        <item>右側程式片段主要功能為：輸入六個整數，檢測並印出最後一個數字是否為六個數字中最小的值。然而，這個程式是錯誤的。請問以下哪一組測試資料可以測試出程式有誤？</item>
+        <item>程式編譯器可以發現下列哪種錯誤?</item>
+        <item>大部分程式語言都是以列為主的方式儲存陣列。在一個8x4的陣列(array) A裡，若每個元素需要兩單位的記憶體大小，且若A[0][0]的記憶體位址為 108 (十進制表示)，則A[1][2]的記憶體位址為何？</item>
+        <item>右側為一個計算n階層的函式，請問該如何修改才會得到正確的結果？        </item>
+        <item>右側程式碼，執行時的輸出為何？</item>
+        <item>右側f()函式執行後所回傳的值為何？</item>
+        <item>右側f()函式 "a", "b", "c" 處需分別填入哪些數字，方能使得 f(4) 輸出 2468的結果？\n記得改扣 把()換成""</item>
+        <item>右側g(4)函式呼叫執行後，回傳值為何？</item>
+        <item>右側Mystery()函式else 部分運算式應為何，才能使得 Mystery(9) 的回傳值為34。</item>
     </string-array>
 
     <string-array name="stem_10510">
-        <item>q01</item>
+        <item>右側 F()函式執行後，輸出為何？</item>
+        <item>右側 switch 敘述程式碼可以如何以 if-else改寫？</item>
+        <item>給定右側 G(), K()  兩函式，執行 G(3)後所回傳的值為何？</item>
+        <item>右側程式碼執行後輸出結果為何？</item>
+        <item>右側程式碼執行後輸出結果為何？</item>
+        <item>右側函式以 F(7)  呼叫後回傳值為 12，則 &lt;condition&gt; 應為何？</item>
+        <item>若 n 為正整數，右側程式三個迴圈執行完畢後 a  值將為何？</item>
+        <item>下面哪組資料若依序存入陣列中，將無法直接使用二分搜尋法搜尋資料？</item>
+        <item>右側是依據分數 s 評定等第的程式碼片段，正確的等第公式應為：\n90~100 判為 A 等\n80~89 判為 B 等\n70~79 判為 C 等\n60~69 判為 D 等\n0~59 判為 F 等\n這段程式碼在處理 0~100 的分數時，有幾個分數的等第是錯的？</item>
+        <item>右側主程式執行完三次 G()的呼叫後，p 陣列中有幾個元素的值為0？</item>
+        <item>右側程式片段執行後，count 的值為何？</item>
+        <item>右側程式片段執行過程中的輸出為何？</item>
+        <item>若宣告一個字元陣列  char str[20] = "Hello world!";  該陣列 str[12]值為何？</item>
+        <item>假設 x,y,z 為布林(boolean)變數，且 x=TRUE, y=TRUE, z=FALSE。請問下面各布林運算式的真假值依序為何？(TRUE  表真，FALSE  表假)\n- !(y || z) || x\n- !y || (z || !x)\n- z || (x &amp;&amp; (y || z))\n- (x || x) &amp;&amp; z</item>
+        <item>右側程式片段執行過程的輸出為何？</item>
+        <item>右列程式片段中，假設 a, a_ptr和 a_ptrptr 這三個變數都有被正確宣告，且呼叫 G()函式時的參數為  a_ptr  及  a_ptrptr。G()函式的兩個參數型態該如何宣告？</item>
+        <item>右側程式片段中執行後若要印出下列圖案，(a)  的條件判斷式該如何設定？\n******\n\t****\n\t\t**</item>
+        <item>給定右側 G()函式，執行 G(1)後所輸出的值為何？</item>
+        <item>下列程式碼是自動計算找零程式的一部分，程式碼中三個主要變數分別為 Total (購買總額)，Paid (實際支付金額)，Change (找零金額)。但是此程式片段有冗餘的程式碼，請找出冗餘程式碼的區塊。</item>
+        <item>右側程式執行後輸出為何？</item>
+        <item>右側 G()應為一支遞迴函式，已知當 a 固定為2，不同的變數 x 值會有不同的回傳值如下表所示。請找出 G()函式中  (a)  處的計算式該為何？</item>
+        <item>如果  (X)n  代表  X  這個數字是  n  進位，請問  (D02A)16 + (5487)10  等於多少？</item>
+        <item>請問右側程式，執行完後輸出為何？</item>
+        <item>右側 G()為遞迴函式，G(3, 7)執行後回傳值為何？</item>
+        <item>右側函式若以  search (1, 10, 3)  呼叫時，search  函式總共會被執行幾次？ </item>
     </string-array>
 
     <string-array name="stem_10603">
-        <item>q01</item>
+        <item>給定一個 1x8 的陣列  A，  A = {0, 2, 4, 6, 8, 10, 12, 14}。右側函式Search(x)真正目的是找到  A  之中大於 x 的最小值。然而，這個函式有誤。請問下列哪個函式呼叫可測出函式有誤？</item>
+        <item>給定函式  A1()、  A2()  與  F()  如下，以下敘述何者有誤？</item>
+        <item>右側 F()函式回傳運算式該如何寫，才會使得 F(14)的回傳值為40? </item>
+        <item>右側函式兩個回傳式分別該如何撰寫，才能正確計算並回傳兩參數 a, b 之最大公因數  (Greatest Common Divisor)？</item>
+        <item>若 A 是一個可儲存 n 筆整數的陣列，且資料儲存於A[0]~A[n-1]。經過右程式碼運算後，以下何者敘述不一定正確？</item>
+        <item>若 A[][]  是一個 MxN 的整數陣列，右側程式片段用以計算 A 陣列每一列的總和，以下敘述何者正確？</item>
+        <item>若以 B(5,2)呼叫右側 B()函式，總共會印出幾次  “base case”？</item>
+        <item>給定右側程式，其中 s 有被宣告為全域變數，請問程式	執行後輸出為何？</item>
+        <item>右側 F()函式執行時，若輸入依序為整數 0, 1, 2, 3, 4, 5, 6, 7, 8, 9，請問  X[]  陣列的元素值依順序為何？</item>
+        <item>若以 G(100)呼叫右側函式後，n 的值為何? </item>
+        <item>若 A[1]、A[2]，和 A[3]分別為陣列 A[]的三個元素(element)，下列那個程式片段可以將 A[1]和 A[2]的內容交換？</item>
+        <item>若函式 rand()的回傳值為一介於 0 和 10000 之間的亂數，下列那個運算式可產生介於 100 和1000 之間的任意數(包含 100 和 1000)？</item>
+        <item>右側程式片段無法正確列印 20 次的"Hi!"，請問下列哪一個修正方式仍無法正確列印 20 次的"Hi!"？</item>
+        <item>若以 F(15)呼叫右側 F()函式，總共會印出幾行數字？</item>
+        <item>給定右側函式 F()，執行 F()時哪一行程式碼可能永遠不會被執行到？</item>
+        <item>給定右側函式 F()，已知 F(7)回傳值為 17，且 F(8)回傳值為 25，請問  if 的條件判斷式應為何？</item>
+        <item>給定右側函式 F()，F()執行完所回傳的 x 值為何？</item>
+        <item>右側程式執行完畢後所輸出值為何？</item>
+        <item>右側程式擬找出陣列 A[]中的最大值和最小值。不過，這段程式碼有誤，請問 A[]初始值如何設定就可以測出程式有誤？</item>
+        <item>小藍寫了一段複雜的程式碼想考考你是否了解函式的執行流程。請回答程式最後輸出的數值為何？</item>
+        <item>若以 F(5,2)呼叫右側 F()函式，執行完畢後回傳值為何? </item>
+        <item>若要邏輯判斷式  !(X1 || X2)計算結果為真(True)，則 X1 與 X2 的值分別應為何？</item>
+        <item>程式執行時，程式中的變數值是存放在</item>
+        <item>程式執行過程中，若變數發生溢位情形，其主要原因為何？</item>
+        <item>若  a, b, c, d, e  均為整數變數，下列哪個算式計算結果與  a+b*c-e  計算結果相同？</item>
     </string-array>
 
 
@@ -291,11 +258,262 @@
     </string-array>
 
     <string-array name="choice_10510">
-        <item>q01</item>
+        <item>1 2</item>
+        <item>1 3</item>
+        <item>3 2</item>
+        <item>3 3</item>
+
+        <!-- ' 需使用跳脫字元 \' -->
+        <item>if (x==10) y = \'a\'; \n\t\t\t\tif (x==20 || x==30) y = \'b\';\n\t\t\t\ty = \'c\'; </item>
+        <item>if (x==10) y = \'a\'; \n\t\t\t\tnelse if (x==20 || x==30) y = \'b\';\n\t\t\t\telse y = \'c\'; </item>
+        <item>if (x==10) y = \'a\'; \n\t\t\t\tif (x＞=20 &amp;&amp; x＜=30) y = \'b\';\n\t\t\t\ty = \'c\'; </item>
+        <item>if (x==10) y = \'a\'; \n\t\t\t\telse if(x＞=20 &amp;&amp; x＜=30) y = \'b\';\n\t\t\t\telse y = \'c\'; </item>
+
+        <item>5</item>
+        <item>12</item>
+        <item>14</item>
+        <item>15</item>
+
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+
+        <item>2 4 6 8 9 7 5 3 1 9</item>
+        <item>1 3 5 7 9 2 4 6 8 9</item>
+        <item>1 2 3 4 5 6 7 8 9 9</item>
+        <item>2 4 6 8 5 1 3 7 9 9</item>
+
+        <item>a &lt; 3</item>
+        <item>a &lt; 2</item>
+        <item>a &lt; 1</item>
+        <item>a &lt; 0</item>
+
+        <!--無法使用上標 所以用 ^ 和()表示指數-->
+        <item>n(n+1)/2</item>
+        <item>(n^3)/2</item>
+        <item>n(n-1)/2</item>
+        <item>(n^2)(n+1)/2</item>
+
+        <item>a, e, i, o, u</item>
+        <item>3, 1, 4, 5, 9</item>
+        <item>10000, 0, -10000</item>
+        <item>1, 10, 10, 10, 100</item>
+
+        <item>20</item>
+        <item>11</item>
+        <item>2</item>
+        <item>10</item>
+
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+
+        <item>36</item>
+        <item>20</item>
+        <item>12</item>
+        <item>3</item>
+
+        <item>5 10 15 20</item>
+        <item>5 11 17 23</item>
+        <item>6 12 18 24</item>
+        <item>6 11 17 22</item>
+
+        <!-- \\ 跳脫字元問題 -->
+        <item>未宣告</item>
+        <item>\\0</item>
+        <item>!</item>
+        <item>\\n</item>
+
+        <item>TRUE FALSE TRUE FALSE</item>
+        <item>FALSE FALSE TRUE FALSE</item>
+        <item>FALSE TRUE TRUE FALSE</item>
+        <item>TRUE TRUE FALSE TRUE</item>
+
+        <item>44</item>
+        <item>52</item>
+        <item>54</item>
+        <item>63</item>
+
+        <item>(a) *int,    (b) *int</item>
+        <item>(a) *int,    (b) **int</item>
+        <item>(a) int*,    (b) int*</item>
+        <item>(a) int*,    (b) int**</item>
+
+        <item>k > 2</item>
+        <item>k > 1</item>
+        <item>k > 0</item>
+        <item>k >-1</item>
+
+        <item>1 2 3</item>
+        <item>1 2 3 2 1</item>
+        <item>1 2 3 3 2 1</item>
+        <item>以上皆非</item>
+
+        <item>冗餘程式碼在 A 區</item>
+        <item>冗餘程式碼在 B 區</item>
+        <item>冗餘程式碼在 C 區</item>
+        <item>冗餘程式碼在 D 區</item>
+
+        <item>0</item>
+        <item>10</item>
+        <item>25</item>
+        <item>50</item>
+
+        <item>((2*a)+2) * G(a, x - 1) </item>
+        <item>(a+5) * G(a-1, x - 1) </item>
+        <item>((3*a)-1) * G(a, x - 1) </item>
+        <item>(a+6) * G(a, x - 1) </item>
+
+        <!-- 無法表示下標 所以用()標示 -->
+        <item>(1100 0101 1001 1001)2</item>
+        <item>(162631)8 </item>
+        <item>(58787)16</item>
+        <item>(F599)16</item>
+
+        <item>2417851639229258349412352 7</item>
+        <item>68921 43</item>
+        <item>65537 65539</item>
+        <item>134217728 6</item>
+
+        <item>128</item>
+        <item>2187</item>
+        <item>6561</item>
+        <item>1024</item>
+
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
     </string-array>
 
     <string-array name="choice_10603">
-        <item>q01</item>
+        <item>Search(-1) </item>
+        <item>Search(0) </item>
+        <item>Search(10) </item>
+        <item>Search(16) </item>
+
+        <item>A1(5)  印的  \'*\'  個數比 A2(5)  多</item>
+        <item>A1(13)  印的  \'*\'  個數比 A2(13)  多</item>
+        <item>A2(14)  印的  \'*\'  個數比 A1(14)  多</item>
+        <item>A2(15)  印的  \'*\'  個數比 A1(15)  多</item>
+
+        <item>n * F(n - 1) </item>
+        <item>n + F(n - 3) </item>
+        <item>n - F(n - 2) </item>
+        <item>F(3n+1) </item>
+
+        <item>a, GCD(b,r) </item>
+        <item>b, GCD(b,r) </item>
+        <item>a, GCD(a,r) </item>
+        <item>b, GCD(a,r) </item>
+
+        <item>p 是 A 陣列資料中的最大值</item>
+        <item>q 是 A 陣列資料中的最小值</item>
+        <item>q &lt; p </item>
+        <item>A[0] &lt; = p </item>
+
+        <item>第一列總和是正確，但其他列總和不一定正確</item>
+        <item>程式片段在執行時會產生錯誤  (run-time error) </item>
+        <item>程式片段中有語法上的錯誤</item>
+        <item>程式片段會完成執行並正確印出每一列的總和</item>
+
+        <item>1</item>
+        <item>5</item>
+        <item>10</item>
+        <item>19</item>
+
+        <item>1,6,7,7,8,8,9</item>
+        <item>1,6,7,7,8,1,9</item>
+        <item>1,6,7,8,9,9,9</item>
+        <item>1,6,7,7,8,9,9</item>
+
+        <item>0, 1, 2, 3, 4, 5, 6, 7, 8, 9</item>
+        <item>2, 0, 2, 0, 2, 0, 2, 0, 2, 0</item>
+        <item>9, 0, 1, 2, 3, 4, 5, 6, 7, 8</item>
+        <item>8, 9, 0, 1, 2, 3, 4, 5, 6, 7</item>
+
+        <item>25</item>
+        <item>75</item>
+        <item>150</item>
+        <item>250</item>
+
+        <item>A[1] = A[2];    A[2] = A[1];</item>
+        <item>A[3] = A[1];    A[1] = A[2];    A[2] = A[3];</item>
+        <item>A[2] = A[1];    A[3] = A[2];    A[1] = A[3];</item>
+        <item>以上皆可</item>
+
+        <item>rand() % 900 + 100</item>
+        <item>rand() % 1000 + 1</item>
+        <item>rand() % 899 + 101</item>
+        <item>rand() % 901 + 100</item>
+
+        <item>需要將 i &lt;=100  和 i=i+5 分別修正為 i &lt;20  和  i=i+1</item>
+        <item>需要將 i=0 修正為 i=5</item>
+        <item>需要將 i &lt;=100 修正為 i &lt;100;</item>
+        <item>需要將 i=0 和 i &lt;=100  分別修正為 i=5  和  i &lt;100</item>
+
+        <item>16 行</item>
+        <item>22 行</item>
+        <item>11 行</item>
+        <item>15 行</item>
+
+        <item>a = a + 5;</item>
+        <item>a = a + 2;</item>
+        <item>a = 5;</item>
+        <item>每一行都執行得到</item>
+
+        <item>a % 2 != 1</item>
+        <item>a * 2 > 16</item>
+        <item>a + 3 &lt; 12</item>
+        <item>a * a &lt; 50</item>
+
+        <!-- 無法表示log 要找方法解決 -->
+        <item>n(n+1)√⌊log2𝑛⌋</item>
+        <item> (n^2)(n+1)/2</item>
+        <item>n(n+1)⌊log2n + 1⌋/2</item>
+        <item>n(n+1)/2</item>
+
+        <item>12</item>
+        <item>24</item>
+        <item>16</item>
+        <item>20</item>
+
+        <item>{90, 80, 100}</item>
+        <item>{80, 90, 100}</item>
+        <item>{100, 90, 80}</item>
+        <item>{90, 100, 80}</item>
+
+        <item>70</item>
+        <item>80</item>
+        <item>100</item>
+        <item>190</item>
+
+        <item>1 </item>
+        <item>3 </item>
+        <item>5 </item>
+        <item>8 </item>
+
+        <item>X1 為  False，X2 為  False</item>
+        <item>X1 為  True，X2 為  True</item>
+        <item>X1 為  True，X2 為  False</item>
+        <item>X1 為  False，X2 為  True</item>
+
+        <item>記憶體</item>
+        <item>硬碟</item>
+        <item>輸出入裝置</item>
+        <item>匯流排</item>
+
+        <item>以有限數目的位元儲存變數值</item>
+        <item>電壓不穩定</item>
+        <item>作業系統與程式不甚相容</item>
+        <item>變數過多導致編譯器無法完全處理</item>
+
+        <item> (((a+b)*c)-e)</item>
+        <item> ((a+b)*(c-e))</item>
+        <item> ((a+(b*c))-e)</item>
+        <item> (a+((b*c)-e))</item>
     </string-array>
 
     <string name="correct_answer_10503">ACDDBBBCBCDCAAADBAABADACD</string>
