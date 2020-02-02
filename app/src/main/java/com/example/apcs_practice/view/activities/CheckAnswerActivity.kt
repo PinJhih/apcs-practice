@@ -55,17 +55,15 @@ class CheckAnswerActivity : AppCompatActivity() {
     }
 
     private fun getQuestion(session: Int) {
-        val resId = IntArray(5)
         val arrRes = resources.obtainTypedArray(session)
+        val resId = IntArray(arrRes.length())
         for (i in 0 until arrRes.length()) {
             resId[i] = arrRes.getResourceId(i, 0)
         }
 
         val arrStem = resources.obtainTypedArray(resId[0])
         val arrChoice = resources.obtainTypedArray(resId[1])
-        val arrUrl = resources.obtainTypedArray(resId[4])
         correctAnswer = resources.getString(resId[2])
-
         for (i in 0 until arrStem.length()) {
             val q = Question()
             q.stem = arrStem.getString(i)!!
@@ -73,14 +71,12 @@ class CheckAnswerActivity : AppCompatActivity() {
             q.choice_b = arrChoice.getString(i * 4 + 1)!!
             q.choice_c = arrChoice.getString(i * 4 + 2)!!
             q.choice_d = arrChoice.getString(i * 4 + 3)!!
-            q.url = arrUrl.getString(i)!!
             questions.add(q)
         }
 
         arrRes.recycle()
         arrStem.recycle()
         arrChoice.recycle()
-        arrUrl.recycle()
 
         title = resources.getString(resId[3])
         addHistory(session)
@@ -129,9 +125,9 @@ class CheckAnswerActivity : AppCompatActivity() {
 
     private fun showDetailed(questionNumber: Int) {
         val i = Intent(this, DetailedActivity::class.java)
-        val id = title+String.format("%02d",questionNumber+1)
+        val id = title + String.format("%02d", questionNumber + 1)
 
-        i.putExtra("detailedId",id)
+        i.putExtra("detailedId", id)
         startActivity(i)
     }
 

@@ -26,7 +26,6 @@
         <item>@array/choice_10503</item>
         <item>@string/correct_answer_10503</item>
         <item>@string/session_10503</item>
-        <item>@array/url_10503</item>
     </integer-array>
 
     <integer-array name="res_10510">
@@ -34,7 +33,6 @@
         <item>@array/choice_10510</item>
         <item>@string/correct_answer_10510</item>
         <item>@string/session_10510</item>
-        <item>@array/url_10510</item>
     </integer-array>
 
     <integer-array name="res_10603">
@@ -42,7 +40,6 @@
         <item>@array/choice_10603</item>
         <item>@string/correct_answer_10603</item>
         <item>@string/session_10603</item>
-        <item>@array/url_10603</item>
     </integer-array>
 
     <string-array name="stem_10503">
@@ -519,40 +516,4 @@
     <string name="correct_answer_10503">ACDDBBBCBCDCAAADBAABADACD</string>
     <string name="correct_answer_10510">ACDDBBBCBCDCAAADBAABADACD</string>
     <string name="correct_answer_10603">ACDDBBBCBCDCAAADBAABADACD</string>
-
-    <string-array name="url_10503">
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-    </string-array>
-
-    <string-array name="url_10510">
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-    </string-array>
-
-    <string-array name="url_10603">
-        <item>https://hackmd.io/@PinJhih/HyAdSd5ZU</item>
-    </string-array>
 </resources>
