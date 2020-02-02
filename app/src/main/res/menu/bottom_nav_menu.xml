@@ -3,17 +3,16 @@
 
     <item
         android:id="@+id/navigation_session_select"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
-
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="練習" />
     <item
         android:id="@+id/navigation_histories"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
+        android:icon="@android:drawable/ic_menu_recent_history"
+        android:title="歷史紀錄" />
 
     <item
         android:id="@+id/navigation_setting"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />
+        android:icon="@android:drawable/ic_menu_manage"
+        android:title="設定" />
 
 </menu>
