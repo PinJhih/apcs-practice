@@ -88,12 +88,12 @@ class PracticeActivity : AppCompatActivity() {
         btn_last.setOnClickListener {
             questionNumber--
             if (questionNumber < 0)
-                questionNumber = questions.size
+                questionNumber = questions.size - 1
             setView()
         }
         btn_next.setOnClickListener {
             questionNumber++
-            if (questionNumber > questions.size)
+            if (questionNumber >= questions.size)
                 questionNumber = 0
             setView()
         }
@@ -111,7 +111,7 @@ class PracticeActivity : AppCompatActivity() {
             }
         }
 
-        if(settings.getBoolean("darkMode",false))
+        if (settings.getBoolean("darkMode", false))
             setDarkMode()
     }
 
@@ -150,7 +150,7 @@ class PracticeActivity : AppCompatActivity() {
         startActivityForResult(i, 1)
     }
 
-    private fun setDarkMode(){
+    private fun setDarkMode() {
         val backgroundColor = Color.parseColor("#000000")
         val textColor = Color.parseColor("#ffffff")
 
