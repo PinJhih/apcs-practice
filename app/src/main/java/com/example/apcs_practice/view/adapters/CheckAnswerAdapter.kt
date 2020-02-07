@@ -30,22 +30,23 @@ class CheckAnswerAdapter(
 
         val itemView = holder.itemView
         val questionNumber = "第${position + 1}題"
+        val bgColor = if (myAnswer[position] == correctAnswer[position]) Color.parseColor("#5EF181")
+        else Color.parseColor("#F75F5F")
+
         itemView.tv_question_number.text = questionNumber
         itemView.tv_correct_answer.text = correctAnswer[position].toString()
         itemView.tv_my_answer.text = myAnswer[position].toString()
-
+        itemView.layout_item_check_answer.setBackgroundColor(bgColor)
         itemView.layout_item_check_answer.setOnClickListener {
             (context as CheckAnswerActivity).reviewQuestion(position)
         }
 
-        if(settings.getBoolean("darkMode",false)){
-            val backgroundColor = Color.parseColor("#000000")
+        if (settings.getBoolean("darkMode", false)) {
             val textColor = Color.parseColor("#ffffff")
 
             itemView.tv_question_number.setTextColor(textColor)
             itemView.tv_correct_answer.setTextColor(textColor)
             itemView.tv_my_answer.setTextColor(textColor)
-            itemView.layout_item_check_answer.setBackgroundColor(backgroundColor)
         }
     }
 }
