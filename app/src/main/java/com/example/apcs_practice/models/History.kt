@@ -5,5 +5,6 @@ data class History(
     var date: String = "",
     var answer: String = "",
     var title: String = "",
-    var session: Int = 0
+    var session: Int = 0,
+    var correctRate: String = "0/25"
 )

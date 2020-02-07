@@ -93,10 +93,11 @@ class CheckAnswerActivity : AppCompatActivity() {
         val sdf = SimpleDateFormat(myFormat, Locale.TAIWAN)
         val date = sdf.format(cal.time)
         val id = "${System.currentTimeMillis()}"
+        val corrcetRate = "$numberOfCorrectAnswer/25"
 
         db.execSQL(
-            "INSERT INTO histories(id,date,title,session,myAnswer) VALUES(?,?,?,?,?)",
-            arrayOf<Any?>(id, date, title, session, myAnswer)
+            "INSERT INTO histories(id,date,title,session,myAnswer,correctRate) VALUES(?,?,?,?,?,?)",
+            arrayOf<Any?>(id, date, title, session, myAnswer,corrcetRate)
         )
     }
 

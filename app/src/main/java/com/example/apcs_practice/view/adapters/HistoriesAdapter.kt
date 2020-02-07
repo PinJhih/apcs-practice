@@ -29,10 +29,13 @@ class HistoriesAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val itemView = holder.itemView
+        val date = "作答日期: " + histories[position].date
+        val title = histories[position].title + "場"
+        val correctRate = "答對率: " + histories[position].correctRate
 
-        itemView.tv_date.text = histories[position].date
-        itemView.tv_session.text = histories[position].title
-
+        itemView.tv_date.text = date
+        itemView.tv_session.text = title
+        itemView.tv_correct_rate.text = correctRate
         itemView.layout_item_history.setOnClickListener {
             val session = histories[position].session
             val answer = histories[position].answer
@@ -40,7 +43,7 @@ class HistoriesAdapter(
             (context as MainActivity).checkAnswer(session, answer)
         }
 
-        if(settings.getBoolean("darkMode",false)){
+        if (settings.getBoolean("darkMode", false)) {
             val backgroundColor = Color.parseColor("#000000")
             val textColor = Color.parseColor("#ffffff")
 
