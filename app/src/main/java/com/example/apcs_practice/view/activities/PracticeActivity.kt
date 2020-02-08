@@ -7,26 +7,31 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import com.example.apcs_practice.R
+import com.example.apcs_practice.database.HistoryDBHelper
 import com.example.apcs_practice.models.Question
 import kotlinx.android.synthetic.main.activity_practice.*
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class PracticeActivity : AppCompatActivity() {
 
     private var questions = ArrayList<Question>()
     private lateinit var answers: CharArray
     private var questionNumber = 0
+    private var correctAnswer = ""
+    private var title = ""
 
     private fun setQuestions(session: Int) {
-        val resId = IntArray(2)
         val arrRes = resources.obtainTypedArray(session)
-
-        for (i in 0 until 2) {
+        val resId = IntArray(arrRes.length())
+        for (i in 0 until arrRes.length()) {
             resId[i] = arrRes.getResourceId(i, 0)
         }
 
         val arrStem = resources.obtainTypedArray(resId[0])
         val arrChoice = resources.obtainTypedArray(resId[1])
-
+        correctAnswer = resources.getString(resId[2])
         for (i in 0 until arrStem.length()) {
             val q = Question()
             q.stem = arrStem.getString(i)!!
@@ -40,6 +45,8 @@ class PracticeActivity : AppCompatActivity() {
         arrRes.recycle()
         arrStem.recycle()
         arrChoice.recycle()
+
+        title = resources.getString(resId[3])
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -141,13 +148,37 @@ class PracticeActivity : AppCompatActivity() {
     }
 
     private fun checkAnswer(session: Int) {
-
-        val i = Intent(this, CheckAnswerActivity::class.java)
+        val intent = Intent(this, CheckAnswerActivity::class.java)
         val b = Bundle()
+        var numberOfCorrectAnswer = 0
+        for (i in correctAnswer.indices)
+            if (answers[i] == correctAnswer[i])
+                numberOfCorrectAnswer++
+        addHistory(session, numberOfCorrectAnswer)
+
         b.putInt("session", session)
         b.putString("answer", String(answers))
-        i.putExtras(b)
-        startActivityForResult(i, 1)
+        intent.putExtras(b)
+        startActivityForResult(intent, 1)
+    }
+
+    private fun addHistory(session: Int, numberOfCorrectAnswer: Int) {
+        val db = HistoryDBHelper(this).writableDatabase
+        val cal = Calendar.getInstance()
+        cal.get(Calendar.YEAR)
+        cal.get(Calendar.MONTH)
+        cal.get(Calendar.DAY_OF_MONTH)
+        val myFormat = "yyyy/MM/dd"
+        val sdf = SimpleDateFormat(myFormat, Locale.TAIWAN)
+        val date = sdf.format(cal.time)
+        val id = "${System.currentTimeMillis()}"
+        val correctRate = "$numberOfCorrectAnswer/25"
+
+        db.execSQL(
+            "INSERT INTO histories(id,date,title,session,myAnswer,correctRate) VALUES(?,?,?,?,?,?)",
+            arrayOf<Any?>(id, date, title, session, String(answers), correctRate)
+        )
+        db.close()
     }
 
     private fun setDarkMode() {

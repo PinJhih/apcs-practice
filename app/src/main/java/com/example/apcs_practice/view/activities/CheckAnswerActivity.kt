@@ -2,24 +2,19 @@ package com.example.apcs_practice.view.activities
 
 import android.app.AlertDialog
 import android.content.Intent
-import android.database.sqlite.SQLiteDatabase
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apcs_practice.R
-import com.example.apcs_practice.database.HistoryDBHelper
 import com.example.apcs_practice.models.Question
 import com.example.apcs_practice.view.adapters.CheckAnswerAdapter
 import kotlinx.android.synthetic.main.activity_check_answer.*
-import java.text.SimpleDateFormat
-import java.util.*
 import kotlin.collections.ArrayList
 
 class CheckAnswerActivity : AppCompatActivity() {
 
-    private lateinit var db: SQLiteDatabase
     private lateinit var adapter: CheckAnswerAdapter
     private var title = ""
     private var questions = ArrayList<Question>()
@@ -79,31 +74,6 @@ class CheckAnswerActivity : AppCompatActivity() {
         arrChoice.recycle()
 
         title = resources.getString(resId[3])
-        addHistory(session)
-    }
-
-    private fun addHistory(session: Int) {
-        db = HistoryDBHelper(this).writableDatabase
-
-        val cal = Calendar.getInstance()
-        cal.get(Calendar.YEAR)
-        cal.get(Calendar.MONTH)
-        cal.get(Calendar.DAY_OF_MONTH)
-        val myFormat = "yyyy/MM/dd"
-        val sdf = SimpleDateFormat(myFormat, Locale.TAIWAN)
-        val date = sdf.format(cal.time)
-        val id = "${System.currentTimeMillis()}"
-        val corrcetRate = "$numberOfCorrectAnswer/25"
-
-        db.execSQL(
-            "INSERT INTO histories(id,date,title,session,myAnswer,correctRate) VALUES(?,?,?,?,?,?)",
-            arrayOf<Any?>(id, date, title, session, myAnswer,corrcetRate)
-        )
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        db.close()
     }
 
     fun reviewQuestion(questionNumber: Int) {
