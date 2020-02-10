@@ -4,15 +4,15 @@
     <item
         android:id="@+id/navigation_session_select"
         android:icon="@android:drawable/ic_menu_edit"
-        android:title="練習" />
+        android:title="@string/practice" />
     <item
         android:id="@+id/navigation_histories"
         android:icon="@android:drawable/ic_menu_recent_history"
-        android:title="歷史紀錄" />
+        android:title="@string/history" />
 
     <item
         android:id="@+id/navigation_setting"
         android:icon="@android:drawable/ic_menu_manage"
-        android:title="設定" />
+        android:title="@string/setting" />
 
 </menu>

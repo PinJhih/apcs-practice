@@ -3,6 +3,9 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="practice">練習</string>
+    <string name="history">歷史紀錄</string>
+    <string name="setting">設定</string>
     <string name="next">下一題</string>
     <string name="last">上一題</string>
     <string name="finish">結束</string>

@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_session_select">
 
     <fragment
         android:id="@+id/navigation_session_select"
         android:name="com.example.apcs_practice.view.fragments.SessionSelectFragment"
-        android:label="@string/title_home" />
+        android:label="@string/practice" />
 
     <fragment
         android:id="@+id/navigation_histories"
         android:name="com.example.apcs_practice.view.fragments.HistoriesFragment"
-        android:label="@string/title_dashboard" />
+        android:label="@string/history" />
 
     <fragment
         android:id="@+id/navigation_setting"
         android:name="com.example.apcs_practice.view.fragments.SettingFragment"
-        android:label="@string/title_notifications" />
+        android:label="@string/setting" />
 </navigation>
