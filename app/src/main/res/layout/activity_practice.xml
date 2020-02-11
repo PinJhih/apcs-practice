@@ -33,7 +33,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
@@ -50,20 +50,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/tv_choices"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:text="@string/app_name"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_stem" />
-
                 <ImageView
                     android:id="@+id/img"
                     android:layout_width="0dp"
@@ -73,9 +59,9 @@
                     android:layout_marginEnd="16dp"
                     android:contentDescription="@string/app_name"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_choices"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_d"
                     app:srcCompat="@android:color/transparent" />
 
                 <RadioGroup
@@ -120,6 +106,90 @@
                         android:layout_weight="1"
                         android:text="@string/choice_d" />
                 </RadioGroup>
+
+                <TextView
+                    android:id="@+id/tv_a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/a"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_stem"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_stem" />
+
+                <TextView
+                    android:id="@+id/tv_choice_a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_a"
+                    app:layout_constraintTop_toTopOf="@+id/tv_a" />
+
+                <TextView
+                    android:id="@+id/tv_b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/b"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_a"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_a" />
+
+                <TextView
+                    android:id="@+id/tv_c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/c"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_b"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_b" />
+
+                <TextView
+                    android:id="@+id/tv_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/d"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_c"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_c" />
+
+                <TextView
+                    android:id="@+id/tv_choice_b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_b"
+                    app:layout_constraintTop_toTopOf="@+id/tv_b" />
+
+                <TextView
+                    android:id="@+id/tv_choice_c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_c"
+                    app:layout_constraintTop_toTopOf="@+id/tv_c" />
+
+                <TextView
+                    android:id="@+id/tv_choice_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_d"
+                    app:layout_constraintTop_toTopOf="@+id/tv_d" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

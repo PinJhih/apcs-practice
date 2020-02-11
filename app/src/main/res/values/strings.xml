@@ -23,6 +23,10 @@
     <string name="choice_b">B</string>
     <string name="choice_c">C</string>
     <string name="choice_d">D</string>
+    <string name="a">A.\t</string>
+    <string name="b">B.\t</string>
+    <string name="c">C.\t</string>
+    <string name="d">D.\t</string>
 
     <integer-array name="res_10503">
         <item>@array/stem_10503</item>

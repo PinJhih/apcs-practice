@@ -129,13 +129,11 @@ class PracticeActivity : AppCompatActivity() {
     }
 
     private fun setView() {
-        val choice = "A. " + questions[questionNumber].choice_a + "\n" +
-                "B. " + questions[questionNumber].choice_b + "\n" +
-                "C. " + questions[questionNumber].choice_c + "\n" +
-                "D. " + questions[questionNumber].choice_d
-
         tv_stem.text = questions[questionNumber].stem
-        tv_choices.text = choice
+        tv_choice_a.text = questions[questionNumber].choice_a
+        tv_choice_b.text = questions[questionNumber].choice_b
+        tv_choice_c.text = questions[questionNumber].choice_c
+        tv_choice_d.text = questions[questionNumber].choice_d
         spinner_number.setSelection(questionNumber)
 
         when (answers[questionNumber]) {
@@ -186,7 +184,10 @@ class PracticeActivity : AppCompatActivity() {
         val textColor = Color.parseColor("#ffffff")
 
         tv_stem.setTextColor(textColor)
-        tv_choices.setTextColor(textColor)
+        tv_choice_a.setTextColor(textColor)
+        tv_choice_b.setTextColor(textColor)
+        tv_choice_c.setTextColor(textColor)
+        tv_choice_d.setTextColor(textColor)
         btn_choice_a.setTextColor(textColor)
         btn_choice_b.setTextColor(textColor)
         btn_choice_c.setTextColor(textColor)
