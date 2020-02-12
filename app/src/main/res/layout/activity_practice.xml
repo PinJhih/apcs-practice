@@ -61,7 +61,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_d"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_choice_d"
                     app:srcCompat="@android:color/transparent" />
 
                 <RadioGroup
@@ -132,64 +132,64 @@
                     android:id="@+id/tv_b"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
                     android:text="@string/b"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="@+id/tv_a"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_a" />
+                    app:layout_constraintTop_toTopOf="@+id/tv_choice_b" />
 
                 <TextView
                     android:id="@+id/tv_c"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
                     android:text="@string/c"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="@+id/tv_b"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_b" />
+                    app:layout_constraintTop_toTopOf="@+id/tv_choice_c" />
 
                 <TextView
                     android:id="@+id/tv_d"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
                     android:text="@string/d"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="@+id/tv_c"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_c" />
+                    app:layout_constraintTop_toTopOf="@+id/tv_choice_d" />
 
                 <TextView
                     android:id="@+id/tv_choice_b"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="@string/app_name"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/tv_b"
-                    app:layout_constraintTop_toTopOf="@+id/tv_b" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_choice_a" />
 
                 <TextView
                     android:id="@+id/tv_choice_c"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="@string/app_name"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/tv_c"
-                    app:layout_constraintTop_toTopOf="@+id/tv_c" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_choice_b" />
 
                 <TextView
                     android:id="@+id/tv_choice_d"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="@string/app_name"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/tv_d"
-                    app:layout_constraintTop_toTopOf="@+id/tv_d" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_choice_c" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
