@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -31,13 +32,13 @@ class HistoriesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        historiesDB = HistoryDBHelper(this.context!!).writableDatabase
+
         val linearLayoutManager = LinearLayoutManager(this.context)
-        histories.clear()
         adapter = HistoriesAdapter(this.context!!, histories) {
             historiesDB.execSQL("DELETE FROM histories WHERE id LIKE $it")
             setView()
         }
-
         linearLayoutManager.orientation = RecyclerView.VERTICAL
         rv_history.layoutManager = linearLayoutManager
         rv_history.adapter = adapter
@@ -61,23 +62,30 @@ class HistoriesFragment : Fragment() {
     }
 
     private fun setView() {
-        historiesDB = HistoryDBHelper(this.context!!).writableDatabase
         val data = historiesDB.rawQuery("SELECT * FROM histories", null)
 
-        data.moveToFirst()
-        histories.clear()
-        adapter.notifyDataSetChanged()
-        for (i in 0 until data.count) {
-            val h = History()
-            h.id = data.getString(0)
-            h.date = data.getString(1)
-            h.title = data.getString(2)
-            h.session = data.getInt(3)
-            h.answer = data.getString(4)
-            histories.add(h)
+        if (data.count == 0) {
+            rv_history.isVisible = false
+            tv_status.isVisible = true
+        } else {
+            rv_history.isVisible = true
+            tv_status.isVisible = false
 
-            data.moveToNext()
+            histories.clear()
+            data.moveToFirst()
             adapter.notifyDataSetChanged()
+            for (i in 0 until data.count) {
+                val h = History()
+                h.id = data.getString(0)
+                h.date = data.getString(1)
+                h.title = data.getString(2)
+                h.session = data.getInt(3)
+                h.answer = data.getString(4)
+                histories.add(h)
+
+                data.moveToNext()
+                adapter.notifyDataSetChanged()
+            }
         }
         data.close()
     }
