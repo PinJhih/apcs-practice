@@ -1,5 +1,6 @@
 package com.example.apcs_practice.view.adapters
 
+import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -14,7 +15,8 @@ import kotlinx.android.synthetic.main.item_history.view.*
 
 class HistoriesAdapter(
     private val context: Context,
-    private val histories: ArrayList<History>
+    private val histories: ArrayList<History>,
+    val itemClick: (String) -> Unit
 ) :
     RecyclerView.Adapter<HistoriesAdapter.ViewHolder>() {
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v)
@@ -37,10 +39,19 @@ class HistoriesAdapter(
         itemView.tv_session.text = title
         itemView.tv_correct_rate.text = correctRate
         itemView.layout_item_history.setOnClickListener {
-            val session = histories[position].session
-            val answer = histories[position].answer
+            AlertDialog.Builder(context)
+                .setTitle(title)
+                .setMessage(date + "\n" + correctRate)
+                .setNeutralButton("刪除紀錄") { _, _ ->
+                    itemClick(histories[position].id)
+                }
+                .setPositiveButton("觀看紀錄") { _, _ ->
+                    val session = histories[position].session
+                    val answer = histories[position].answer
 
-            (context as MainActivity).checkAnswer(session, answer)
+                    (context as MainActivity).checkAnswer(session, answer)
+                }
+                .show()
         }
 
         if (settings.getBoolean("darkMode", false)) {

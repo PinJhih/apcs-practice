@@ -16,7 +16,6 @@ import com.example.apcs_practice.view.activities.settings
 import com.example.apcs_practice.view.adapters.HistoriesAdapter
 import kotlinx.android.synthetic.main.fragment_histories.*
 
-
 class HistoriesFragment : Fragment() {
 
     private lateinit var historiesDB: SQLiteDatabase
@@ -34,12 +33,16 @@ class HistoriesFragment : Fragment() {
 
         val linearLayoutManager = LinearLayoutManager(this.context)
         histories.clear()
-        adapter = HistoriesAdapter(this.context!!, histories)
+        adapter = HistoriesAdapter(this.context!!, histories) {
+            historiesDB.execSQL("DELETE FROM histories WHERE id LIKE $it")
+            setView()
+        }
+
         linearLayoutManager.orientation = RecyclerView.VERTICAL
         rv_history.layoutManager = linearLayoutManager
         rv_history.adapter = adapter
 
-        if(settings.getBoolean("darkMode",false)){
+        if (settings.getBoolean("darkMode", false)) {
             val backgroundColor = Color.parseColor("#000000")
             layout_history.setBackgroundColor(backgroundColor)
         }
@@ -48,11 +51,22 @@ class HistoriesFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        setView()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        historiesDB.close()
+    }
+
+    private fun setView() {
         historiesDB = HistoryDBHelper(this.context!!).writableDatabase
         val data = historiesDB.rawQuery("SELECT * FROM histories", null)
 
         data.moveToFirst()
         histories.clear()
+        adapter.notifyDataSetChanged()
         for (i in 0 until data.count) {
             val h = History()
             h.id = data.getString(0)
@@ -67,11 +81,4 @@ class HistoriesFragment : Fragment() {
         }
         data.close()
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-
-        historiesDB.close()
-    }
-
 }
