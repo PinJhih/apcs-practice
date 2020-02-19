@@ -29,26 +29,26 @@ class SettingFragment : Fragment() {
             setView()
         }
         switch_notification_test.setOnClickListener {
-            settingEditor.putBoolean("notificationTest", switch_dark_mode.isChecked)
+            settingEditor.putBoolean("notificationTest", switch_notification_test.isChecked)
             settingEditor.commit()
         }
         switch_sign_up_start.setOnClickListener {
-            settingEditor.putBoolean("notificationSignUpStart", switch_dark_mode.isChecked)
+            settingEditor.putBoolean("notificationSignUpStart", switch_sign_up_start.isChecked)
             settingEditor.commit()
         }
         switch_sign_up_end.setOnClickListener {
-            settingEditor.putBoolean("notificationSignUpEnd", switch_dark_mode.isChecked)
+            settingEditor.putBoolean("notificationSignUpEnd", switch_sign_up_end.isChecked)
             settingEditor.commit()
         }
         switch_query_results.setOnClickListener {
-            settingEditor.putBoolean("queryResultsStart", switch_dark_mode.isChecked)
+            settingEditor.putBoolean("queryResultsStart", switch_query_results.isChecked)
             settingEditor.commit()
         }
 
-        setView()
+        init()
     }
 
-    private fun setView() {
+    private fun init(){
         if (settings.getBoolean("darkMode", false))
             switch_dark_mode.isChecked = true
         if (settings.getBoolean("notificationTest", false))
@@ -60,14 +60,22 @@ class SettingFragment : Fragment() {
         if (settings.getBoolean("queryResultsStart", false))
             switch_query_results.isChecked = true
 
-        var backgroundColor = Color.parseColor("#ffffff")
+        setView()
+    }
+
+    private fun setView() {
+        var backgroundColor = Color.parseColor("#FAFAFA")
         var textColor = Color.parseColor("#000000")
         if (settings.getBoolean("darkMode", false)) {
-            backgroundColor = Color.parseColor("#000000")
-            textColor = Color.parseColor("#ffffff")
+            backgroundColor = Color.parseColor("#2B2B2B")
+            textColor = Color.parseColor("#FFFFFF")
         }
         layout_setting.setBackgroundColor(backgroundColor)
         switch_dark_mode.setTextColor(textColor)
+        switch_notification_test.setTextColor(textColor)
+        switch_sign_up_start.setTextColor(textColor)
+        switch_sign_up_end.setTextColor(textColor)
+        switch_query_results.setTextColor(textColor)
     }
 
     override fun onDestroy() {

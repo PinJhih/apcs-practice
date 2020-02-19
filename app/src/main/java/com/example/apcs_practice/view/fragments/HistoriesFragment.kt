@@ -44,8 +44,10 @@ class HistoriesFragment : Fragment() {
         rv_history.adapter = adapter
 
         if (settings.getBoolean("darkMode", false)) {
-            val backgroundColor = Color.parseColor("#000000")
+            val backgroundColor = Color.parseColor("#2B2B2B")
+            val textColor = Color.parseColor("#FFFFFF")
             layout_history.setBackgroundColor(backgroundColor)
+            tv_status.setTextColor(textColor)
         }
     }
 

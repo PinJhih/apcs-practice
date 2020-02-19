@@ -7,6 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".view.activities.PracticeActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FAFAFA"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner_number"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_number"
+        app:layout_constraintStart_toStartOf="@+id/spinner_number"
+        app:layout_constraintTop_toTopOf="@+id/spinner_number" />
+
     <Spinner
         android:id="@+id/spinner_number"
         android:layout_width="0dp"
@@ -83,6 +94,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:buttonTint="@color/colorAccent"
                         android:text="@string/choice_a" />
 
                     <RadioButton
@@ -90,6 +102,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:buttonTint="@color/colorAccent"
                         android:text="@string/choice_b" />
 
                     <RadioButton
@@ -97,6 +110,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:buttonTint="@color/colorAccent"
                         android:text="@string/choice_c" />
 
                     <RadioButton
@@ -104,6 +118,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:buttonTint="@color/colorAccent"
                         android:text="@string/choice_d" />
                 </RadioGroup>
 

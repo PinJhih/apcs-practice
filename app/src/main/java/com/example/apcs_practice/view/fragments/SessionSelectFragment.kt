@@ -41,7 +41,7 @@ class SessionSelectFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if(settings.getBoolean("darkMode",false)){
-            val backgroundColor = Color.parseColor("#000000")
+            val backgroundColor = Color.parseColor("#2B2B2B")
             layout_session_select.setBackgroundColor(backgroundColor)
         }
     }

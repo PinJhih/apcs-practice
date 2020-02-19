@@ -103,8 +103,8 @@ class CheckAnswerActivity : AppCompatActivity() {
     }
 
     private fun setDarkMode() {
-        val backgroundColor = Color.parseColor("#000000")
-        val textColor = Color.parseColor("#ffffff")
+        val backgroundColor = Color.parseColor("#2B2B2B")
+        val textColor = Color.parseColor("#FFFFFF")
 
         tv_num_correct_answers.setTextColor(textColor)
         tv_title_num_correct_answers.setTextColor(textColor)

@@ -55,12 +55,11 @@ class HistoriesAdapter(
         }
 
         if (settings.getBoolean("darkMode", false)) {
-            val backgroundColor = Color.parseColor("#000000")
             val textColor = Color.parseColor("#ffffff")
-
+            
             itemView.tv_date.setTextColor(textColor)
             itemView.tv_session.setTextColor(textColor)
-            itemView.layout_item_history.setBackgroundColor(backgroundColor)
+            itemView.tv_correct_rate.setTextColor(textColor)
         }
     }
 }

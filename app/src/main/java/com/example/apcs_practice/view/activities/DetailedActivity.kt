@@ -1,6 +1,7 @@
 package com.example.apcs_practice.view.activities
 
 import android.database.sqlite.SQLiteDatabase
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -29,6 +30,13 @@ class DetailedActivity : AppCompatActivity() {
 
         updateData()
         showDetailed()
+
+        if (settings.getBoolean("darkMode", false)) {
+            val backgroundColor = Color.parseColor("#2B2B2B")
+            val textColor = Color.parseColor("#FFFFFF")
+            layout_detailed.setBackgroundColor(backgroundColor)
+            tv_content.setTextColor(textColor)
+        }
     }
 
     private fun showDetailed() {

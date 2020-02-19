@@ -5,7 +5,7 @@
     android:id="@+id/layout_check_answer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activities.AnswerCheckActivity">
+    tools:context=".view.activities.CheckAnswerActivity">
 
     <TextView
         android:id="@+id/tv_title_num_correct_answers"
@@ -33,7 +33,9 @@
         android:id="@+id/rv_check_answer"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

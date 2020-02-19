@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import com.example.apcs_practice.R
 import com.example.apcs_practice.database.HistoryDBHelper
 import com.example.apcs_practice.models.Question
@@ -70,7 +71,7 @@ class PracticeActivity : AppCompatActivity() {
         for (i in 0 until questions.size)
             spinnerItems.add("第${i + 1}題")
         val spinnerAdapter =
-            android.widget.ArrayAdapter(
+            ArrayAdapter(
                 this,
                 android.R.layout.simple_spinner_dropdown_item,
                 spinnerItems
@@ -180,10 +181,15 @@ class PracticeActivity : AppCompatActivity() {
     }
 
     private fun setDarkMode() {
-        val backgroundColor = Color.parseColor("#000000")
-        val textColor = Color.parseColor("#ffffff")
+        val backgroundColor = Color.parseColor("#2B2B2B")
+        val textColor = Color.parseColor("#FAFAFA")
+
 
         tv_stem.setTextColor(textColor)
+        tv_a.setTextColor(textColor)
+        tv_b.setTextColor(textColor)
+        tv_c.setTextColor(textColor)
+        tv_d.setTextColor(textColor)
         tv_choice_a.setTextColor(textColor)
         tv_choice_b.setTextColor(textColor)
         tv_choice_c.setTextColor(textColor)

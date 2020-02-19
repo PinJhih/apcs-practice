@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apcs_practice.R
 import com.example.apcs_practice.view.activities.CheckAnswerActivity
-import com.example.apcs_practice.view.activities.settings
 import kotlinx.android.synthetic.main.item_check_answer.view.*
 
 class CheckAnswerAdapter(
@@ -32,8 +31,8 @@ class CheckAnswerAdapter(
         val itemView = holder.itemView
         val questionNumber = "第${position + 1}題"
         val bgColor =
-            if (myAnswer[position] == correctAnswers[position]) Color.parseColor("#D5FACE")
-            else Color.parseColor("#FCCACA")
+            if (myAnswer[position] == correctAnswers[position]) Color.parseColor("#D9CBFFC4")
+            else Color.parseColor("#D9FFC0C0")
         val textColor =
             if (myAnswer[position] == correctAnswers[position]) Color.parseColor("#3C783C")
             else Color.parseColor("#AA4343")
