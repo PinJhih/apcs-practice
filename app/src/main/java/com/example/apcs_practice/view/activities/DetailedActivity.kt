@@ -13,14 +13,12 @@ import com.example.apcs_practice.database.DetailedDBHelper
 import com.example.apcs_practice.models.Detailed
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ListenerRegistration
 import kotlinx.android.synthetic.main.activity_detailed.*
 
 class DetailedActivity : AppCompatActivity() {
 
     private lateinit var fireStore: FirebaseFirestore
     private lateinit var db: SQLiteDatabase
-    private lateinit var listenerRegistration: ListenerRegistration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +27,6 @@ class DetailedActivity : AppCompatActivity() {
         db = DetailedDBHelper(this).writableDatabase
         fireStore = FirebaseFirestore.getInstance()
 
-        updateData()
         showDetailed()
         setTextView()
 
@@ -41,18 +38,20 @@ class DetailedActivity : AppCompatActivity() {
         }
     }
 
-    private fun setTextView(){
-        val size = settings.getFloat("textSize",18F)
+    private fun setTextView() {
+        val size = settings.getFloat("textSize", 18F)
         tv_content.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
     }
 
     private fun showDetailed() {
         intent?.extras?.let {
+            var detailed = Detailed()
             val id = it.getString("detailedId")!!
-            val detailed = db.rawQuery("SELECT * FROM detaileds WHERE id LIKE '$id'", null)
+            val detaileds = db.rawQuery("SELECT * FROM detaileds WHERE id LIKE '$id'", null)
             val handler = Handler(Handler.Callback { msg ->
                 when (msg.what) {
                     1 -> {
+                        tv_content.text = detailed.content
                         layout_loading.isVisible = false
                     }
                 }
@@ -60,54 +59,34 @@ class DetailedActivity : AppCompatActivity() {
             })
 
             layout_loading.isVisible = true
-            if (detailed.count == 0) {
+            if (detaileds.count == 0) {
                 fireStore.collection("detailed").document(id)
                     .get()
                     .addOnSuccessListener { documentSnapshot: DocumentSnapshot ->
                         Thread(Runnable {
-                            val d = documentSnapshot.toObject(Detailed::class.java)!!
-                            tv_content.text = d.content
+                            detailed = documentSnapshot.toObject(Detailed::class.java)!!
                             Thread.sleep(300)
+                            db.execSQL(
+                                "INSERT INTO detaileds(id,content) VALUES(?,?)",
+                                arrayOf<Any?>(id, detailed.content)
+                            )
                             val msg = Message()
                             msg.what = 1
                             handler.sendMessage(msg)
-
-                            db.execSQL(
-                                "INSERT INTO detaileds(id,content) VALUES(?,?)",
-                                arrayOf<Any?>(id, d.content)
-                            )
                         }).start()
                     }
             } else {
-                detailed.moveToFirst()
-                tv_content.text = detailed.getString(1)
+                detaileds.moveToFirst()
+                tv_content.text = detaileds.getString(1)
                 layout_loading.isVisible = false
             }
-            detailed.close()
+            detaileds.close()
         }
-    }
-
-    private fun updateData() {
-        listenerRegistration = fireStore.collection("detailed")
-            .addSnapshotListener { querySnapshot, _ ->
-                val items: List<Detailed> =
-                    querySnapshot?.toObjects(Detailed::class.java) ?: mutableListOf()
-
-                for (i in items) {
-                    val detailed =
-                        db.rawQuery("SELECT * FROM detaileds WHERE id LIKE '${i.id}'", null)
-                    if (detailed.count != 0)
-                        db.execSQL("UPDATE detaileds SET content = '${i.content}' WHERE id LIKE '${i.id}'")
-                    detailed.close()
-                }
-                showDetailed()
-            }
     }
 
     override fun onDestroy() {
         super.onDestroy()
 
-        listenerRegistration.remove()
         db.close()
     }
 }
