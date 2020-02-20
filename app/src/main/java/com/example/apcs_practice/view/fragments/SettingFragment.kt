@@ -1,8 +1,8 @@
 package com.example.apcs_practice.view.fragments
 
 import android.app.AlertDialog
-import android.graphics.Color
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +26,7 @@ class SettingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setSwitches()
         /*
         switch_dark_mode.setOnClickListener {
             settingEditor.putBoolean("darkMode", switch_dark_mode.isChecked)
@@ -64,7 +65,7 @@ class SettingFragment : Fragment() {
                         Toast.makeText(context, "沒有歷史紀錄", Toast.LENGTH_SHORT).show()
                     histories.close()
                     db.close()
-                }
+                }.show()
         }
         tv_reset_settings.setOnClickListener {
             settingEditor.putBoolean("notificationTest", true)
@@ -74,13 +75,47 @@ class SettingFragment : Fragment() {
             settingEditor.putString("textSize", "mid")
 
             settingEditor.commit()
-            initSwitches()
+            setSwitches()
         }
-
-        initSwitches()
+        tv_text_size.setOnClickListener {
+            val item = arrayOf("大", "中", "小")
+            var position = when (settings.getFloat("textSize", 18F)) {
+                20F -> 0
+                18F -> 1
+                else -> 2
+            }
+            AlertDialog.Builder(context)
+                .setTitle("字體大小")
+                .setSingleChoiceItems(item, position) { _, i ->
+                    position = i
+                }
+                .setPositiveButton("確定") { _, _ ->
+                    val size = when (position) {
+                        0 -> 20F
+                        1 -> 18F
+                        else -> 16F
+                    }
+                    settingEditor.putFloat("textSize", size)
+                    settingEditor.commit()
+                    setTextView()
+                }
+                .show()
+        }
     }
 
-    private fun initSwitches() {
+    private fun setTextView() {
+        val size = settings.getFloat("textSize", 18F)
+        tv_test_date.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
+        tv_sign_up_start.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
+        tv_sign_up_end.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
+        tv_query_results.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
+        tv_delete_histories.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
+        tv_reset_settings.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
+        tv_text_size.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
+        tv_info.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
+    }
+
+    private fun setSwitches() {
         /*
         if (settings.getBoolean("darkMode", false))
             switch_dark_mode.isChecked = true
@@ -93,11 +128,12 @@ class SettingFragment : Fragment() {
             switch_sign_up_end.isChecked = true
         if (settings.getBoolean("queryResultsStart", true))
             switch_query_results.isChecked = true
-
-        setView()
     }
 
-    private fun setView() {
+    /*
+
+    dark mode
+    private fun setColors() {
         var backgroundColor = Color.parseColor("#FAFAFA")
         var textColor = Color.parseColor("#000000")
         if (settings.getBoolean("darkMode", false)) {
@@ -108,11 +144,8 @@ class SettingFragment : Fragment() {
         /*
         switch_dark_mode.setTextColor(textColor)
         */
-        switch_notification_test.setTextColor(textColor)
-        switch_sign_up_start.setTextColor(textColor)
-        switch_sign_up_end.setTextColor(textColor)
-        switch_query_results.setTextColor(textColor)
     }
+    */
 
     override fun onDestroy() {
         super.onDestroy()

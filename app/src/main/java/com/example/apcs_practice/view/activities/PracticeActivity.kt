@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -121,6 +122,7 @@ class PracticeActivity : AppCompatActivity() {
 
         if (settings.getBoolean("darkMode", false))
             setDarkMode()
+        setTextView()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -184,7 +186,6 @@ class PracticeActivity : AppCompatActivity() {
         val backgroundColor = Color.parseColor("#2B2B2B")
         val textColor = Color.parseColor("#FAFAFA")
 
-
         tv_stem.setTextColor(textColor)
         tv_a.setTextColor(textColor)
         tv_b.setTextColor(textColor)
@@ -199,5 +200,19 @@ class PracticeActivity : AppCompatActivity() {
         btn_choice_c.setTextColor(textColor)
         btn_choice_d.setTextColor(textColor)
         layout_practice.setBackgroundColor(backgroundColor)
+    }
+
+    private fun setTextView(){
+        val size = settings.getFloat("textSize",18F)
+
+        tv_stem.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
+        tv_a.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
+        tv_b.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
+        tv_c.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
+        tv_d.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
+        tv_choice_a.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
+        tv_choice_b.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
+        tv_choice_c.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
+        tv_choice_d.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
     }
 }

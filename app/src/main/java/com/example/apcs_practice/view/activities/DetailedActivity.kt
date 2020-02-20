@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
+import android.util.TypedValue
 import androidx.core.view.isVisible
 import com.example.apcs_practice.R
 import com.example.apcs_practice.database.DetailedDBHelper
@@ -30,6 +31,7 @@ class DetailedActivity : AppCompatActivity() {
 
         updateData()
         showDetailed()
+        setTextView()
 
         if (settings.getBoolean("darkMode", false)) {
             val backgroundColor = Color.parseColor("#2B2B2B")
@@ -37,6 +39,11 @@ class DetailedActivity : AppCompatActivity() {
             layout_detailed.setBackgroundColor(backgroundColor)
             tv_content.setTextColor(textColor)
         }
+    }
+
+    private fun setTextView(){
+        val size = settings.getFloat("textSize",18F)
+        tv_content.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
     }
 
     private fun showDetailed() {
