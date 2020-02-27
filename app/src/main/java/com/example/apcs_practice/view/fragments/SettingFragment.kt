@@ -27,6 +27,7 @@ class SettingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setSwitches()
+        setTextView()
         /*
         switch_dark_mode.setOnClickListener {
             settingEditor.putBoolean("darkMode", switch_dark_mode.isChecked)
