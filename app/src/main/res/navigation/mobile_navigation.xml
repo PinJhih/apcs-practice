@@ -14,8 +14,4 @@
         android:name="com.example.apcs_practice.view.fragments.HistoriesFragment"
         android:label="@string/history" />
 
-    <fragment
-        android:id="@+id/navigation_setting"
-        android:name="com.example.apcs_practice.view.fragments.SettingFragment"
-        android:label="@string/setting" />
 </navigation>

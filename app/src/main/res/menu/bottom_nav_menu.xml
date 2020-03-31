@@ -10,9 +10,4 @@
         android:icon="@android:drawable/ic_menu_recent_history"
         android:title="@string/history" />
 
-    <item
-        android:id="@+id/navigation_setting"
-        android:icon="@android:drawable/ic_menu_manage"
-        android:title="@string/setting" />
-
 </menu>
