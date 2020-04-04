@@ -5,5 +5,6 @@ data class Question(
     var choice_a: String = "",
     var choice_b: String = "",
     var choice_c: String = "",
-    var choice_d: String = ""
+    var choice_d: String = "",
+    var detailed: String = ""
 )

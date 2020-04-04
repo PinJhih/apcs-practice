@@ -61,6 +61,7 @@ class CheckAnswerActivity : AppCompatActivity() {
 
         val arrStem = resources.obtainTypedArray(resId[0])
         val arrChoice = resources.obtainTypedArray(resId[1])
+        val arrDetailed = resources.obtainTypedArray(resId[4])
         correctAnswer = resources.getString(resId[2])
         for (i in 0 until arrStem.length()) {
             val q = Question()
@@ -69,12 +70,14 @@ class CheckAnswerActivity : AppCompatActivity() {
             q.choice_b = arrChoice.getString(i * 4 + 1)!!
             q.choice_c = arrChoice.getString(i * 4 + 2)!!
             q.choice_d = arrChoice.getString(i * 4 + 3)!!
+            q.detailed = arrDetailed.getString(i)!!
             questions.add(q)
         }
 
         arrRes.recycle()
         arrStem.recycle()
         arrChoice.recycle()
+        arrDetailed.recycle()
 
         title = resources.getString(resId[3])
     }
@@ -91,17 +94,17 @@ class CheckAnswerActivity : AppCompatActivity() {
             .setTitle("第${questionNumber + 1}題")
             .setMessage(msg)
             .setPositiveButton("觀看詳解") { _, _ ->
-                showDetailed(questionNumber)
+                showDetailed(msg, questionNumber)
             }
             .setNegativeButton("關閉") { _, _ -> }
             .show()
     }
 
-    private fun showDetailed(questionNumber: Int) {
+    private fun showDetailed(question: String, number: Int) {
         val i = Intent(this, DetailedActivity::class.java)
-        val id = title + String.format("%02d", questionNumber + 1)
+        val content = "題目:\n" + question + "\n\n" + "解析:\n" + questions[number].detailed
 
-        i.putExtra("detailedId", id)
+        i.putExtra("content", content)
         startActivity(i)
     }
 
