@@ -146,6 +146,7 @@ class PracticeActivity : AppCompatActivity() {
             'D' -> btn_choice_d.isChecked = true
             else -> radioGroup.clearCheck()
         }
+        scrollView.scrollTo(0, 0)
     }
 
     private fun checkAnswer(session: Int) {
@@ -202,8 +203,8 @@ class PracticeActivity : AppCompatActivity() {
         layout_practice.setBackgroundColor(backgroundColor)
     }
 
-    private fun setTextView(){
-        val size = settings.getFloat("textSize",18F)
+    private fun setTextView() {
+        val size = settings.getFloat("textSize", 18F)
 
         tv_stem.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
         tv_a.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
