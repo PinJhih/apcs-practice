@@ -131,6 +131,18 @@ class PracticeActivity : AppCompatActivity() {
         finish()
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        outState.putCharArray("answers", answers)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        answers = savedInstanceState.getCharArray("answers")!!
+    }
+
     private fun setView() {
         tv_stem.text = questions[questionNumber].stem
         tv_choice_a.text = questions[questionNumber].choice_a
