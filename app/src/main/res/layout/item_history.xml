@@ -10,6 +10,7 @@
         android:id="@+id/tv_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginBottom="4dp"
         android:layout_weight="1"
         android:text="01/11"
@@ -21,14 +22,15 @@
 
     <TextView
         android:id="@+id/tv_session"
-        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:layout_weight="1"
         android:text="@string/session_10503"
         android:textColor="@android:color/black"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,7 +42,8 @@
         android:layout_marginEnd="8dp"
         android:text="答對率:"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_session"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/tv_session" />
 </androidx.constraintlayout.widget.ConstraintLayout>

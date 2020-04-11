@@ -31,9 +31,9 @@ class HistoriesAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val itemView = holder.itemView
-        val date = "作答日期: " + histories[position].date
+        val date = histories[position].date
         val title = histories[position].title + "場"
-        val correctRate = "答對率: " + histories[position].correctRate
+        val correctRate = "正確率: " + histories[position].correctRate
 
         itemView.tv_date.text = date
         itemView.tv_session.text = title
