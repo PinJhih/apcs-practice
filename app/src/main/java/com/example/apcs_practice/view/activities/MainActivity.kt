@@ -11,7 +11,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.apcs_practice.R
-import com.example.apcs_practice.services.NotificationService
 
 lateinit var settings: SharedPreferences
 
@@ -33,15 +32,6 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         settings = getSharedPreferences("settings", Activity.MODE_PRIVATE)
-
-        if(settings.getBoolean("firstInstall",true)){
-            val edit = settings.edit()
-            edit.putBoolean("firstInstall",false)
-            edit.apply()
-
-            val i = Intent(this,NotificationService::class.java)
-            startService(i)
-        }
     }
 
     fun checkAnswer(session: Int, answers: String) {
