@@ -1,5 +1,6 @@
 package com.example.apcs_practice.view.activities
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -167,18 +168,24 @@ class PracticeActivity : AppCompatActivity() {
     }
 
     private fun checkAnswer(session: Int) {
-        val intent = Intent(this, CheckAnswerActivity::class.java)
-        val b = Bundle()
-        var numberOfCorrectAnswer = 0
-        for (i in correctAnswer.indices)
-            if (answers[i] == correctAnswer[i])
-                numberOfCorrectAnswer++
-        addHistory(session, numberOfCorrectAnswer)
+        AlertDialog.Builder(this)
+            .setTitle("確定結束?")
+            .setNegativeButton("取消") { _, _ -> }
+            .setPositiveButton("結束") { _, _ ->
+                val intent = Intent(this, CheckAnswerActivity::class.java)
+                val b = Bundle()
+                var numberOfCorrectAnswer = 0
+                for (i in correctAnswer.indices)
+                    if (answers[i] == correctAnswer[i])
+                        numberOfCorrectAnswer++
+                addHistory(session, numberOfCorrectAnswer)
 
-        b.putInt("session", session)
-        b.putString("answer", String(answers))
-        intent.putExtras(b)
-        startActivityForResult(intent, 1)
+                b.putInt("session", session)
+                b.putString("answer", String(answers))
+                intent.putExtras(b)
+                startActivityForResult(intent, 1)
+            }
+            .show()
     }
 
     private fun addHistory(session: Int, numberOfCorrectAnswer: Int) {
