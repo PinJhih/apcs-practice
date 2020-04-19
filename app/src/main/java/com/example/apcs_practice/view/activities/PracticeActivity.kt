@@ -19,6 +19,7 @@ import kotlin.collections.ArrayList
 class PracticeActivity : AppCompatActivity() {
 
     private var questions = ArrayList<Question>()
+    private var session = 0
     private lateinit var answers: CharArray
     private var questionNumber = 0
     private var correctAnswer = ""
@@ -54,8 +55,6 @@ class PracticeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_practice)
-
-        var session = 0
 
         intent?.extras?.let {
             session = it.getInt("session")
@@ -123,6 +122,12 @@ class PracticeActivity : AppCompatActivity() {
         if (settings.getBoolean("darkMode", false))
             setDarkMode()
         setTextView()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+        checkAnswer(session)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
