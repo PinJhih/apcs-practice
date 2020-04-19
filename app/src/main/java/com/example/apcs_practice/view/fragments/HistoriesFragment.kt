@@ -1,5 +1,6 @@
 package com.example.apcs_practice.view.fragments
 
+import android.app.AlertDialog
 import android.database.sqlite.SQLiteDatabase
 import android.graphics.Color
 import android.os.Bundle
@@ -51,6 +52,17 @@ class HistoriesFragment : Fragment() {
             val textColor = Color.parseColor("#FFFFFF")
             layout_history.setBackgroundColor(backgroundColor)
             tv_status.setTextColor(textColor)
+        }
+
+        if (settings.getBoolean("historyPageTip", true)) {
+            val editor = settings.edit()
+            AlertDialog.Builder(context)
+                .setTitle("查看歷史紀錄")
+                .setMessage("點擊歷史紀錄查看過去的作答情形")
+                .setPositiveButton("關閉") { _, _ -> }
+                .show()
+            editor.putBoolean("historyPageTip", false)
+            editor.apply()
         }
     }
 

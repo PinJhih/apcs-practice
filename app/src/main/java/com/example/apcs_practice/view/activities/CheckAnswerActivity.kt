@@ -50,6 +50,17 @@ class CheckAnswerActivity : AppCompatActivity() {
 
         if (settings.getBoolean("darkMode", false))
             setDarkMode()
+
+        if (settings.getBoolean("checkAnswerPageTip", true)) {
+            val editor = settings.edit()
+            AlertDialog.Builder(this)
+                .setTitle("查看詳解")
+                .setMessage("點擊題目查看詳解")
+                .setPositiveButton("關閉") { _, _ -> }
+                .show()
+            editor.putBoolean("checkAnswerPageTip", false)
+            editor.apply()
+        }
     }
 
     private fun getQuestion(session: Int) {
