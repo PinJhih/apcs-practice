@@ -9,9 +9,12 @@ import android.util.TypedValue
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.apcs_practice.R
 import com.example.apcs_practice.database.HistoryDBHelper
 import com.example.apcs_practice.models.Question
+import com.example.apcs_practice.view.adapters.CodeAdapter
 import kotlinx.android.synthetic.main.activity_practice.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -22,6 +25,8 @@ class PracticeActivity : AppCompatActivity() {
     private var questions = ArrayList<Question>()
     private var session = 0
     private lateinit var answers: CharArray
+    private lateinit var adapter: CodeAdapter
+    private var code = ArrayList<String>()
     private var questionNumber = 0
     private var correctAnswer = ""
     private var title = ""
@@ -56,6 +61,12 @@ class PracticeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_practice)
+
+        val linearLayoutManager = LinearLayoutManager(this)
+        linearLayoutManager.orientation = RecyclerView.VERTICAL
+        rv_code.layoutManager = linearLayoutManager
+        adapter = CodeAdapter(code)
+        rv_code.adapter = adapter
 
         intent?.extras?.let {
             session = it.getInt("session")
@@ -175,7 +186,27 @@ class PracticeActivity : AppCompatActivity() {
             i++
         }
         i += 2
+        setCode(i)
         tv_stem.text = stem
+    }
+
+    private fun setCode(index: Int) {
+        code.clear()
+        var i = index
+        while (i < questions[questionNumber].stem.length) {
+            var singleLine = ""
+            while (questions[questionNumber].stem[i] != '\n') {
+                singleLine += questions[questionNumber].stem[i]
+                i++
+                if(i >= questions[questionNumber].stem.length)
+                    break
+            }
+            code.add(singleLine)
+            adapter.notifyDataSetChanged()
+            i++
+            if(i >= questions[questionNumber].stem.length)
+                break
+        }
     }
 
     private fun checkAnswer(session: Int) {
