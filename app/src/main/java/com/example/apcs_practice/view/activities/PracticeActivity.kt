@@ -150,12 +150,12 @@ class PracticeActivity : AppCompatActivity() {
     }
 
     private fun setView() {
-        tv_stem.text = questions[questionNumber].stem
         tv_choice_a.text = questions[questionNumber].choice_a
         tv_choice_b.text = questions[questionNumber].choice_b
         tv_choice_c.text = questions[questionNumber].choice_c
         tv_choice_d.text = questions[questionNumber].choice_d
         spinner_number.setSelection(questionNumber)
+        setStem()
 
         when (answers[questionNumber]) {
             'A' -> btn_choice_a.isChecked = true
@@ -165,6 +165,17 @@ class PracticeActivity : AppCompatActivity() {
             else -> radioGroup.clearCheck()
         }
         scrollView.scrollTo(0, 0)
+    }
+
+    private fun setStem() {
+        var stem = ""
+        var i = 0
+        while (!(questions[questionNumber].stem[i] == '\n' && questions[questionNumber].stem[i + 1] == '\n')) {
+            stem += questions[questionNumber].stem[i]
+            i++
+        }
+        i += 2
+        tv_stem.text = stem
     }
 
     private fun checkAnswer(session: Int) {
