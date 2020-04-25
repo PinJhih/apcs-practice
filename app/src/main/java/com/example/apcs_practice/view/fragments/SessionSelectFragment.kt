@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.apcs_practice.R
 import com.example.apcs_practice.view.activities.PracticeActivity
+import com.example.apcs_practice.view.activities.TestActivity
 import com.example.apcs_practice.view.activities.settings
 import kotlinx.android.synthetic.main.fragment_session_select.*
 import kotlinx.android.synthetic.main.fragment_session_select.view.*
@@ -44,6 +45,8 @@ class SessionSelectFragment : Fragment() {
             val backgroundColor = Color.parseColor("#2B2B2B")
             layout_session_select.setBackgroundColor(backgroundColor)
         }
+        val i=Intent(this.context, TestActivity::class.java)
+        startActivity(i)
     }
 
     private fun startPractice(session: Int) {
