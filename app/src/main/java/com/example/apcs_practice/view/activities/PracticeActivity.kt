@@ -9,6 +9,7 @@ import android.util.TypedValue
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apcs_practice.R
@@ -207,6 +208,8 @@ class PracticeActivity : AppCompatActivity() {
             if(i >= questions[questionNumber].stem.length)
                 break
         }
+        if(code.size == 0)
+            rv_code.isVisible = false
     }
 
     private fun checkAnswer(session: Int) {
