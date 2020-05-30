@@ -43,8 +43,8 @@ class CheckAnswerAdapter(
         itemView.tv_correct_answer.setTextColor(textColor)
         itemView.tv_my_answer.setTextColor(textColor)
         itemView.tv_my_answer.text = myAnswer[position].toString()
-        itemView.layout_item_check_answer.setBackgroundColor(bgColor)
-        itemView.layout_item_check_answer.setOnClickListener {
+        itemView.card_check_answer.setCardBackgroundColor(bgColor)
+        itemView.setOnClickListener {
             (context as CheckAnswerActivity).reviewQuestion(position)
         }
     }

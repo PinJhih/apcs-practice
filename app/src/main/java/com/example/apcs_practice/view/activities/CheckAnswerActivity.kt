@@ -5,7 +5,6 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apcs_practice.R
@@ -39,8 +38,6 @@ class CheckAnswerActivity : AppCompatActivity() {
         linearLayoutManager.orientation = RecyclerView.VERTICAL
         rv_check_answer.layoutManager = linearLayoutManager
         adapter = CheckAnswerAdapter(this, myAnswer, correctAnswer)
-        val decoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
-        rv_check_answer.addItemDecoration(decoration)
         rv_check_answer.adapter = adapter
 
         for (i in 0 until myAnswer.count())

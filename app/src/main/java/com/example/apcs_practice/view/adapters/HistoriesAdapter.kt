@@ -38,7 +38,7 @@ class HistoriesAdapter(
         itemView.tv_date.text = date
         itemView.tv_session.text = title
         itemView.tv_correct_rate.text = correctRate
-        itemView.layout_item_history.setOnClickListener {
+        itemView.setOnClickListener {
             AlertDialog.Builder(context)
                 .setTitle(title)
                 .setMessage(date + "\n" + correctRate)

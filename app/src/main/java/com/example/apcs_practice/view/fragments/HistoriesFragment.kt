@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apcs_practice.R
@@ -43,8 +42,6 @@ class HistoriesFragment : Fragment() {
         }
         linearLayoutManager.orientation = RecyclerView.VERTICAL
         rv_history.layoutManager = linearLayoutManager
-        val decoration = DividerItemDecoration(this.context, DividerItemDecoration.VERTICAL)
-        rv_history.addItemDecoration(decoration)
         rv_history.adapter = adapter
 
         if (settings.getBoolean("darkMode", false)) {
