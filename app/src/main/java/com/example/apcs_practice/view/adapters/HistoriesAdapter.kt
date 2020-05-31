@@ -41,7 +41,7 @@ class HistoriesAdapter(
         itemView.setOnClickListener {
             AlertDialog.Builder(context)
                 .setTitle(title)
-                .setMessage(date + "\n" + correctRate)
+                .setMessage(correctRate)
                 .setNeutralButton("刪除紀錄") { _, _ ->
                     itemClick(histories[position].id)
                 }
@@ -56,7 +56,7 @@ class HistoriesAdapter(
 
         if (settings.getBoolean("darkMode", false)) {
             val textColor = Color.parseColor("#ffffff")
-            
+
             itemView.tv_date.setTextColor(textColor)
             itemView.tv_session.setTextColor(textColor)
             itemView.tv_correct_rate.setTextColor(textColor)
