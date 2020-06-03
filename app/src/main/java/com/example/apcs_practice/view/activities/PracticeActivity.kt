@@ -119,7 +119,13 @@ class PracticeActivity : AppCompatActivity() {
             setView()
         }
         btn_finish.setOnClickListener {
-            checkAnswer(session)
+            AlertDialog.Builder(this)
+                .setTitle("確定結束?")
+                .setNegativeButton("取消") { _, _ -> }
+                .setPositiveButton("結束") { _, _ ->
+                    checkAnswer(session)
+                }
+                .show()
         }
         //save the answer
         radioGroup.setOnCheckedChangeListener { _, i ->
@@ -138,9 +144,13 @@ class PracticeActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
-
-        checkAnswer(session)
+        AlertDialog.Builder(this)
+            .setTitle("確定結束?")
+            .setNegativeButton("取消") { _, _ -> }
+            .setPositiveButton("結束") { _, _ ->
+                checkAnswer(session)
+            }
+            .show()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -199,38 +209,32 @@ class PracticeActivity : AppCompatActivity() {
             while (questions[questionNumber].stem[i] != '\n') {
                 singleLine += questions[questionNumber].stem[i]
                 i++
-                if(i >= questions[questionNumber].stem.length)
+                if (i >= questions[questionNumber].stem.length)
                     break
             }
             code.add(singleLine)
             adapter.notifyDataSetChanged()
             i++
-            if(i >= questions[questionNumber].stem.length)
+            if (i >= questions[questionNumber].stem.length)
                 break
         }
-        if(code.size == 0)
+        if (code.size == 0)
             rv_code.isVisible = false
     }
 
     private fun checkAnswer(session: Int) {
-        AlertDialog.Builder(this)
-            .setTitle("確定結束?")
-            .setNegativeButton("取消") { _, _ -> }
-            .setPositiveButton("結束") { _, _ ->
-                val intent = Intent(this, CheckAnswerActivity::class.java)
-                val b = Bundle()
-                var numberOfCorrectAnswer = 0
-                for (i in correctAnswer.indices)
-                    if (answers[i] == correctAnswer[i])
-                        numberOfCorrectAnswer++
-                addHistory(session, numberOfCorrectAnswer)
+        val intent = Intent(this, CheckAnswerActivity::class.java)
+        val b = Bundle()
+        var numberOfCorrectAnswer = 0
+        for (i in correctAnswer.indices)
+            if (answers[i] == correctAnswer[i])
+                numberOfCorrectAnswer++
+        addHistory(session, numberOfCorrectAnswer)
 
-                b.putInt("session", session)
-                b.putString("answer", String(answers))
-                intent.putExtras(b)
-                startActivityForResult(intent, 1)
-            }
-            .show()
+        b.putInt("session", session)
+        b.putString("answer", String(answers))
+        intent.putExtras(b)
+        startActivityForResult(intent, 1)
     }
 
     private fun addHistory(session: Int, numberOfCorrectAnswer: Int) {
