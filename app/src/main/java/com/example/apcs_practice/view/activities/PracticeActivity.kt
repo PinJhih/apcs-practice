@@ -218,8 +218,7 @@ class PracticeActivity : AppCompatActivity() {
             if (i >= questions[questionNumber].stem.length)
                 break
         }
-        if (code.size == 0)
-            rv_code.isVisible = false
+            rv_code.isVisible = (code.size != 0)
     }
 
     private fun checkAnswer(session: Int) {
