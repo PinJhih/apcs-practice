@@ -50,8 +50,8 @@
     </integer-array>
 
     <string-array name="stem_10503">
-        <item>下方程式正確的輸出應該如下：\n\t\t\t\t\t*\n\t\t\t\t***\n\t\t\t*****\n\t\t*******\n\t*********\n在不修改下方程式之第4行及第7行程式碼的前提下，最少需修改幾行程式碼以得到正確輸出？   \n\n1\t\tint k = 4;\n2\t\tint m = 1;\n3\t\tfor (int i=1; i&lt;=5; i=i+1) {\n4\t\t\t\t\t\tfor (int j=1; j&lt;=k; j=j+1) {\n5\t\t\t\t\t\t\t\t\t\tprintf (\" \");\n6\t\t\t\t\t\t}\n7\t\t\t\t\t\tfor (int j=1; j&lt;m; j=j+1) {\n8\t\t\t\t\t\t\t\t\t\tprintf (\"*\");\n9\t\t\t\t\t\t}\n10\t\t\t\t\tprintf (\"\\n\");\n11\t\t\t\t\tk = k – 1;\n12\t\t\t\t\tm = m + 1;\n13\t}      </item>
-        <item>給定一陣列a[10]={ 1, 3, 9, 2, 5, 8, 4, 9, 6, 7 }，i.e., a[0]=1,a[1]=3, …, a[8]=6, a[9]=7，以f(a, 10)呼叫執行下方函式後，回傳值為何？     \n\nint f (int a[ ], int n) {\n\t\t\t\tint index = 0;\n\t\t\t\tfor (int i=1; i&lt;n-1; i=i+1) {\n\t\t\t\t\t\t\t\tif (a[i] >= a[index]) {\n\t\t\t\t\t\t\t\t\t\t\t\tindex = i;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\treturn index;\n}     </item>
+        <item>下方程式正確的輸出應該如下：\n\t\t\t\t\t*\n\t\t\t\t***\n\t\t\t*****\n\t\t*******\n\t*********\n在不修改下方程式之第4行及第7行程式碼的前提下，最少需修改幾行程式碼以得到正確輸出？ \n\n1\t\tint k = 4;\n2\t\tint m = 1;\n3\t\tfor (int i=1; i&lt;=5; i=i+1) {\n4\t\t\t\t\t\tfor (int j=1; j&lt;=k; j=j+1) {\n5\t\t\t\t\t\t\t\t\t\tprintf (\" \");\n6\t\t\t\t\t\t}\n7\t\t\t\t\t\tfor (int j=1; j&lt;m; j=j+1) {\n8\t\t\t\t\t\t\t\t\t\tprintf (\"*\");\n9\t\t\t\t\t\t}\n10\t\t\t\t\tprintf (\"\\n\");\n11\t\t\t\t\tk = k – 1;\n12\t\t\t\t\tm = m + 1;\n13\t}      </item>
+        <item>給定一陣列a[10]={ 1, 3, 9, 2, 5, 8, 4, 9, 6, 7 }，i.e., a[0]=1,a[1]=3, …, a[8]=6, a[9]=7，以f(a, 10)呼叫執行下方函式後，回傳值為何？ \n\nint f (int a[ ], int n) {\n\t\t\t\tint index = 0;\n\t\t\t\tfor (int i=1; i&lt;n-1; i=i+1) {\n\t\t\t\t\t\t\t\tif (a[i] >= a[index]) {\n\t\t\t\t\t\t\t\t\t\t\t\tindex = i;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\treturn index;\n}     </item>
         <item>給定一整數陣列a[0]、a[1]、…、a[99]且a[k]=3k+1，以value=100呼叫以下兩函式，假設函式f1及f2之while迴圈主體分別執行n1與n2次 (i.e, 計算if敘述執行次數，不包含 else if敘述)，請問n1與n2之值為何?\n註： (low + high)/2 只取整數部分。   \n\nint f1(int a[ ], int value) {\nint r_value = -1;\n\t\t\t\tint i = 0;\n\t\t\t\twhile (i &lt; 100) {\n\t\t\t\t\t\t\t\tif (a[i] == value) {\n\t\t\t\t\t\t\t\t\t\t\t\tr_value = i;\n\t\t\t\t\t\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\ti = i + 1;\n\t\t\t\t}\n\t\t\t\treturn r_value;\n}\n\nint f2(int a[ ], int value) {\n\t\t\t\tint r_value = -1;\n\t\t\t\tint low = 0, high = 99;\n\t\t\t\tint mid;\n\t\t\t\twhile (low &lt; high) {\n\t\t\t\t\t\t\t\tmid = (low + high)/2;\n\t\t\t\t\t\t\t\tif (a[mid] == value) {\n\t\t\t\t\t\t\t\t\t\t\t\tr_value = mid;\n\t\t\t\t\t\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\telse if (a[mid] &lt; value) {\n\t\t\t\t\t\t\t\t\t\t\t\tlow = mid + 1;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\telse {\n\t\t\t\t\t\t\t\t\t\t\t\thigh = mid - 1;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\treturn r_value;\n}       </item>
         <item>經過運算後，下方程式的輸出為何？     \n\nfor (i=1; i=100; i=i+1) {\n\t\t\t\tb[i] = i;\n}\na[0] = 0;\nfor (i=1; i&lt;100; i=i+1) {\n\t\t\t\ta[i] = b[i] + a[i-1];\n}\nprintf (\"%d\\n\", a[50]-a[30]);       </item>
         <item>函數f定義如下，如果呼叫f(1000)，指令sum=sum+i被執行的次數最接近下列何者？    \n\nint f (int n) {\n\t\t\t\tint sum=0;\n\t\t\t\tif (n &lt; 2) {\n\t\t\t\t\t\t\t\treturn 0;\n\t\t\t\t}\n\t\t\t\tfor (int i=1; i&lt;n; i=i+1) {\n\t\t\t\t\t\t\t\tsum = sum + i;\n\t\t\t\t}\n\t\t\t\tsum = sum + f(2*n/3);\n\t\t\t\treturn sum;\n}        </item>
@@ -78,59 +78,59 @@
     </string-array>
 
     <string-array name="stem_10510">
-        <item>下方 F()函式執行後，輸出為何？</item>
-        <item>下方 switch 敘述程式碼可以如何以 if-else改寫？</item>
-        <item>給定下方 G(), K()  兩函式，執行 G(3)後所回傳的值為何？</item>
-        <item>下方程式碼執行後輸出結果為何？</item>
-        <item>下方程式碼執行後輸出結果為何？</item>
-        <item>下方函式以 F(7)  呼叫後回傳值為 12，則 &lt;condition&gt; 應為何？</item>
-        <item>若 n 為正整數，下方程式三個迴圈執行完畢後 a  值將為何？</item>
-        <item>下面哪組資料若依序存入陣列中，將無法直接使用二分搜尋法搜尋資料？</item>
-        <item>下方是依據分數 s 評定等第的程式碼片段，正確的等第公式應為：\n90~100 判為 A 等\n80~89 判為 B 等\n70~79 判為 C 等\n60~69 判為 D 等\n0~59 判為 F 等\n這段程式碼在處理 0~100 的分數時，有幾個分數的等第是錯的？</item>
-        <item>下方主程式執行完三次 G()的呼叫後，p 陣列中有幾個元素的值為0？</item>
-        <item>下方程式片段執行後，count 的值為何？</item>
-        <item>下方程式片段執行過程中的輸出為何？</item>
-        <item>若宣告一個字元陣列  char str[20] = "Hello world!";  該陣列 str[12]值為何？</item>
-        <item>假設 x,y,z 為布林(boolean)變數，且 x=TRUE, y=TRUE, z=FALSE。請問下面各布林運算式的真假值依序為何？(TRUE  表真，FALSE  表假)\n- !(y || z) || x\n- !y || (z || !x)\n- z || (x &amp;&amp; (y || z))\n- (x || x) &amp;&amp; z</item>
-        <item>下方程式片段執行過程的輸出為何？</item>
-        <item>右列程式片段中，假設 a, a_ptr和 a_ptrptr 這三個變數都有被正確宣告，且呼叫 G()函式時的參數為  a_ptr  及  a_ptrptr。G()函式的兩個參數型態該如何宣告？</item>
-        <item>下方程式片段中執行後若要印出下列圖案，(a)  的條件判斷式該如何設定？\n******\n\t****\n\t\t**</item>
-        <item>給定下方 G()函式，執行 G(1)後所輸出的值為何？</item>
-        <item>下列程式碼是自動計算找零程式的一部分，程式碼中三個主要變數分別為 Total (購買總額)，Paid (實際支付金額)，Change (找零金額)。但是此程式片段有冗餘的程式碼，請找出冗餘程式碼的區塊。</item>
-        <item>下方程式執行後輸出為何？</item>
-        <item>下方 G()應為一支遞迴函式，已知當 a 固定為2，不同的變數 x 值會有不同的回傳值如下表所示。請找出 G()函式中  (a)  處的計算式該為何？</item>
-        <item>如果  (X)n  代表  X  這個數字是  n  進位，請問  (D02A)16 + (5487)10  等於多少？</item>
-        <item>請問下方程式，執行完後輸出為何？</item>
-        <item>下方 G()為遞迴函式，G(3, 7)執行後回傳值為何？</item>
-        <item>下方函式若以  search (1, 10, 3)  呼叫時，search  函式總共會被執行幾次？ </item>
+        <item>下方 F()函式執行後，輸出為何？\n\nvoid\tF(){\n\t\t\t\tchar\tt,\titem[]\t=\t{\'2\',\t\'8\',\t\'3\',\t\'1\',\t\'9\'};\n\t\t\t\tint\ta,\tb,\tc,\tcount\t=\t5;\n\t\t\t\tfor\t(a\t=\t0;\ta\t&lt;\tcount\t-\t1;\ta\t=\ta\t+\t1){\n\t\t\t\t\t\t\t\tc\t=\ta;\n\t\t\t\t\t\t\t\tt\t=\titem[a];\n\t\t\t\t\t\t\t\tfor\t(b\t=\ta\t+\t1;\tb\t&lt;\tcount;\tb\t=\tb\t+\t1){\n\t\t\t\t\t\t\t\t\t\t\t\tif\t(item[b]\t&lt;\tt){\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tc\t=\tb;\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tt\t=\titem[b];\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\tif\t((a\t==\t2)\t&amp;&amp;\t(b\t==\t3)){\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tprintf(\"%c\t%d\\n\",\tt,\tc);\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t}\n}</item>
+        <item>下方 switch 敘述程式碼可以如何以 if-else改寫？\n\nswitch\t(x){\n\t\t\t\tcase\t10:\n\t\t\t\t\t\t\t\ty\t=\t\'a\';\n\t\t\t\t\t\t\t\tbreak;\n\t\t\t\tcase\t20:\n\t\t\t\tcase\t30:\n\t\t\t\t\t\t\t\ty\t=\t\'b\';\n\t\t\t\t\t\t\t\tbreak;\n\t\t\t\tdefault:\n\t\t\t\t\t\t\t\ty\t=\t\'c\';\n}</item>
+        <item>給定下方 G(), K()  兩函式，執行 G(3)後所回傳的值為何？\n\nint\tK(int\ta[],\tint\tn){\n\t\t\t\tif\t(n\t&gt;=\t0)\n\t\t\t\t\t\t\t\treturn\t(K(a,\tn\t-\t1)\t+\ta[n]);\n\t\t\t\telse\n\t\t\t\t\t\t\t\treturn\t0;\n}\nint\tG(int\tn){\n\t\t\t\tint\ta[]\t=\t{5,\t4,\t3,\t2,\t1};\n\t\t\t\treturn\tK(a,\tn);\n}</item>
+        <item>下方程式碼執行後輸出結果為何？\n\nint\ta\t=\t2,\tb\t=\t3;\nint\tc\t=\t4,\td\t=\t5;\nint\tval;\nval\t=\tb\t/\ta\t+\tc\t/\tb\t+\td\t/\tb;\nprintf(\"%d\\n\",\tval);</item>
+        <item>下方程式碼執行後輸出結果為何？\n\nint\ta[9]\t=\t{1,\t3,\t5,\t7,\t9,\t8,\t6,\t4,\t2};\nint\tn\t=\t9,\ttmp;\nfor\t(int\ti\t=\t0;\ti\t&lt;\tn;\ti\t=\ti\t+\t1){\n\t\t\t\ttmp\t=\ta[i];\n\t\t\t\ta[i]\t=\ta[n\t-\ti\t-\t1];\n\t\t\t\ta[n\t-\ti\t-\t1]\t=\ttmp;\n}\nfor\t(int\ti\t=\t0;\ti\t&lt;=\tn\t/\t2;\ti\t=\ti\t+\t1)\n\t\t\t\tprintf(\"%d\t%d\t\",\ta[i],\ta[n\t-\ti\t-\t1]);</item>
+        <item>下方函式以 F(7)  呼叫後回傳值為 12，則 &lt;condition&gt; 應為何？\n\nint\tF(int\ta){\n\t\t\t\tif\t(&lt;condition&gt;)\n\t\t\t\t\t\t\t\treturn\t1;\n\t\t\t\telse\n\t\t\t\t\t\t\t\treturn\tF(a\t-\t2)\t+\tF(a\t-\t3);\n}</item>
+        <item>若 n 為正整數，下方程式三個迴圈執行完畢後 a  值將為何？\n\nint\ta\t=\t0,\tn;\n…\t\nfor\t(int\ti\t=\t1;\ti\t&lt;=\tn;\ti\t=\ti\t+\t1)\n\t\t\t\tfor\t(int\tj\t=\ti;\tj\t&lt;=\tn;\tj\t=\tj\t+\t1)\n\t\t\t\t\t\t\t\tfor\t(int\tk\t=\t1;\tk\t&lt;=\tn;\tk\t=\tk\t+\t1)\n\t\t\t\t\t\t\t\t\t\t\t\ta\t=\ta\t+\t1;</item>
+        <item>下面哪組資料若依序存入陣列中，將無法直接使用二分搜尋法搜尋資料？\n\n</item>
+        <item>下方是依據分數 s 評定等第的程式碼片段，正確的等第公式應為：\n90~100 判為 A 等\n80~89 判為 B 等\n70~79 判為 C 等\n60~69 判為 D 等\n0~59 判為 F 等\n這段程式碼在處理 0~100 的分數時，有幾個分數的等第是錯的？\n\nif\t(s\t&gt;=\t90){\n\t\t\t\tprintf(\"A\t\\n\");\n}\nelse\tif\t(s\t&gt;=\t80){\n\t\t\t\tprintf(\"B\t\\n\");\n}\nelse\tif\t(s\t&gt;\t60){\n\t\t\t\tprintf(\"D\t\\n\");\n}\nelse\tif\t(s\t&gt;\t70){\n\t\t\t\tprintf(\"C\t\\n\");\n}\nelse{\n\t\t\t\tprintf(\"F\\n\");\n}</item>
+        <item>下方主程式執行完三次 G()的呼叫後，p 陣列中有幾個元素的值為0？\n\nint\tK(int\tp[],\tint\tv){\n\t\t\t\tif\t(p[v]\t!=\tv){\n\t\t\t\t\t\t\t\tp[v]\t=\tK(p,\tp[v]);\n\t\t\t\t}\n\t\t\t\treturn\tp[v];\n}\nvoid\tG(int\tp[],\tint\tl,\tint\tr){\n\t\t\t\tint\ta\t=\tK(p,\tl),\tb\t=\tK(p,\tr);\n\t\t\t\tif\t(a\t!=\tb){\n\t\t\t\t\t\t\t\tp[b]\t=\ta;\n\t\t\t\t}\n}\nint\tmain(void){\n\t\t\t\tint\tp[5]\t=\t{0,\t1,\t2,\t3,\t4};\n\t\t\t\tG(p,\t0,\t1);\n\t\t\t\tG(p,\t2,\t4);\n\t\t\t\tG(p,\t0,\t4);\n\t\t\t\treturn\t0;\n}</item>
+        <item>下方程式片段執行後，count 的值為何？\n\nint\tmaze[5][5]\t=\t{{1,\t1,\t1,\t1,\t1},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{1,\t0,\t1,\t0,\t1},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{1,\t1,\t0,\t0,\t1},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{1,\t0,\t0,\t1,\t1},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{1,\t1,\t1,\t1,\t1}};\nint\tcount\t=\t0;\nfor\t(int\ti\t=\t1;\ti\t&lt;=\t3;\ti\t=\ti\t+\t1){\n\t\t\t\tfor\t(int\tj\t=\t1;\tj\t&lt;=\t3;\tj\t=\tj\t+\t1){\n\t\t\t\t\t\t\t\tint\tdir[4][2]\t=\t{{-1,\t0},\t{0,\t1},\t{1,\t0},\t{0,\t-1}};\n\t\t\t\t\t\t\t\tfor\t(int\td\t=\t0;\td\t&lt;\t4;\td\t=\td\t+\t1){\n\t\t\t\t\t\t\t\t\t\t\t\tif\t(maze[i\t+\tdir[d][0]][j\t+\tdir[d][1]]\t==\t1){\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tcount\t=\tcount\t+\t1;\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t}\n}</item>
+        <item>下方程式片段執行過程中的輸出為何？\n\nint\ta\t=\t5;\n…\t\nfor\t(int\ti\t=\t0;\ti\t&lt;\t20;\ti\t=\ti\t+\t1){\n\t\t\t\ti\t=\ti\t+\ta;\n\t\t\t\tprintf(\"%d\t\",\ti);\n}</item>
+        <item>若宣告一個字元陣列  char str[20] = "Hello world!";  該陣列 str[12]值為何？\n\n</item>
+        <item>假設 x,y,z 為布林(boolean)變數，且 x=TRUE, y=TRUE, z=FALSE。請問下面各布林運算式的真假值依序為何？(TRUE  表真，FALSE  表假)\n- !(y || z) || x\n- !y || (z || !x)\n- z || (x &amp;&amp; (y || z))\n- (x || x) &amp;&amp; z\n\n</item>
+        <item>下方程式片段執行過程的輸出為何？\n\nint\ti,\tsum,\tarr[10];\nfor\t(int\ti\t=\t0;\ti\t&lt;\t10;\ti\t=\ti\t+\t1)\n\t\t\t\tarr[i]\t=\ti;\nsum\t=\t0;\nfor\t(int\ti\t=\t1;\ti\t&lt;\t9;\ti\t=\ti\t+\t1)\n\t\t\t\tsum\t=\tsum\t-\tarr[i\t-\t1]\t+\tarr[i]\t+\tarr[i\t+\t1];\nprintf(\"%d\",\tsum);</item>
+        <item>右列程式片段中，假設 a, a_ptr和 a_ptrptr 這三個變數都有被正確宣告，且呼叫 G()函式時的參數為  a_ptr  及  a_ptrptr。G()函式的兩個參數型態該如何宣告？\n\nvoid\tG((a)a_ptr,\t(b)a_ptrptr){\n\t\t\t\t…\n}\nvoid\tmain(){\n\t\t\t\tint\ta\t=\t1;\n\t\t\t\t//\t\t加入\t\ta_ptr,\ta_ptrptr\t\t變數的宣告\n\t\t\t\t…\ta_ptr\t=\t&amp;a;\n\t\t\t\ta_ptrptr\t=\t&amp;a_ptr;\n\t\t\t\tG(a_ptr,\ta_ptrptr);\n}</item>
+        <item>下方程式片段中執行後若要印出下列圖案，(a)  的條件判斷式該如何設定？\n******\n\t****\n\t\t**\n\nfor\t(int\ti\t=\t0;\ti\t&lt;=\t3;\ti\t=\ti\t+\t1){\n\t\t\t\tfor\t(int\tj\t=\t0;\tj\t&lt;\ti;\tj\t=\tj\t+\t1)\n\t\t\t\t\t\t\t\tprintf(\"\t\");\n\t\t\t\tfor\t(int\tk\t=\t6\t-\t2\t*\ti;\t(a);\tk\t=\tk\t-\t1)\n\t\t\t\t\t\t\t\tprintf(\"*\");\n\t\t\t\tprintf(\"\\n\");\n}</item>
+        <item>給定下方 G()函式，執行 G(1)後所輸出的值為何？\n\nvoid\tG(int\ta){\n\t\t\t\tprintf(\"%d\t\",\ta);\n\t\t\t\tif\t(a\t&gt;=\t3)\n\t\t\t\t\t\t\t\treturn;\n\t\t\t\telse\n\t\t\t\t\t\t\t\tG(a\t+\t1);\n\t\t\t\tprintf(\"%d\t\",\ta);\n}</item>
+        <item>下列程式碼是自動計算找零程式的一部分，程式碼中三個主要變數分別為 Total (購買總額)，Paid (實際支付金額)，Change (找零金額)。但是此程式片段有冗餘的程式碼，請找出冗餘程式碼的區塊。\n\nint\tTotal,\tPaid,\tChange;\n…\t\nChange\t=\tPaid\t-\tTotal;\nprintf(\"500\t:\t%d\tpieces\\n\",\t(Change\t-\tChange\t%\t500)\t/\t500);\nChange\t=\tChange\t%\t500;\nprintf(\"100\t:\t%d\tcoins\\n\",\t(Change\t-\tChange\t%\t100)\t/\t100);\nChange\t=\tChange\t%\t100;\n//\tA\t\t區\nprintf(\"50\t:\t%d\tcoins\\n\",\t(Change\t-\tChange\t%\t50)\t/\t50);\nChange\t=\tChange\t%\t50;\n//\tB\t\t區\nprintf(\"10\t:\t%d\tcoins\\n\",\t(Change\t-\tChange\t%\t10)\t/\t10);\nChange\t=\tChange\t%\t10;\n//\tC\t\t區\nprintf(\"5\t:\t%d\tcoins\\n\",\t(Change\t-\tChange\t%\t5)\t/\t5);\nChange\t=\tChange\t%\t5;\n//\tD\t\t區\nprintf(\"1\t:\t%d\tcoins\\n\",\t(Change\t-\tChange\t%\t1)\t/\t1);\nChange\t=\tChange\t%\t1;</item>
+        <item>下方程式執行後輸出為何？\n\nint\tG(int\tB){\n\t\t\t\tB\t=\tB\t*\tB;\n\t\t\t\treturn\tB;\n}\nint\tmain(){\n\t\t\t\tint\tA\t=\t0,\tm\t=\t5;\n\t\t\t\tA\t=\tG(m);\n\t\t\t\tif\t(m\t&lt;\t10)\n\t\t\t\t\t\t\t\tA\t=\tG(m)\t+\tA;\n\t\t\t\telse\n\t\t\t\t\t\t\t\tA\t=\tG(m);\n\t\t\t\tprintf(\"%d\t\\n\",\tA);\n\t\t\t\treturn\t0;\n}</item>
+        <item>下方 G()應為一支遞迴函式，已知當 a 固定為2，不同的變數 x 值會有不同的回傳值如下表所示。請找出 G()函式中  (a)  處的計算式該為何？\n\nint\tG(int\ta,\tint\tx){\n\t\t\t\tif\t(x\t==\t0)\n\t\t\t\t\t\t\t\treturn\t1;\n\t\t\t\telse\n\t\t\t\t\t\t\t\treturn\t(a);\n}</item>
+        <item>如果  (X)n  代表  X  這個數字是  n  進位，請問  (D02A)16 + (5487)10  等於多少？\n\n</item>
+        <item>請問下方程式，執行完後輸出為何？\n\nint\ti\t=\t2,\tx\t=\t3;\nint\tN\t=\t65536;\nwhile\t(i\t&lt;=\tN){\n\t\t\t\ti\t=\ti\t*\ti\t*\ti;\n\t\t\t\tx\t=\tx\t+\t1;\n}\nprintf(\"%d\t%d\t\\n\",\ti,\tx);</item>
+        <item>下方 G()為遞迴函式，G(3, 7)執行後回傳值為何？\n\nint\tG(int\ta,\tint\tx){\n\t\t\t\tif\t(x\t==\t0)\n\t\t\t\t\t\t\t\treturn\t1;\n\t\t\t\telse\n\t\t\t\t\t\t\t\treturn\t(a\t*\tG(a,\tx\t-\t1));\n}</item>
+        <item>下方函式若以  search (1, 10, 3)  呼叫時，search  函式總共會被執行幾次？\n\nvoid\tsearch(int\tx,\tint\ty,\tint\tz){\n\t\t\t\tif\t(x\t&lt;\ty)\t\t\t\t{\n\t\t\t\t\t\t\t\tt\t=\tceiling((x\t+\ty)\t/\t2);\n\t\t\t\t\t\t\t\tif\t(z\t&gt;=\tt)\n\t\t\t\t\t\t\t\t\t\t\t\tsearch(t,\ty,\tz);\n\t\t\t\t\t\t\t\telse\n\t\t\t\t\t\t\t\t\t\t\t\tsearch(x,\tt\t-\t1,\tz);\n\t\t\t\t}\n}\n註：ceiling()\t為無條件進位至整數位。例如\n\t\t\t\tceiling(3.1)\t=\t4,\n\t\t\t\tceiling(3.9)\t=4</item>
     </string-array>
 
     <string-array name="stem_10603">
-        <item>給定一個 1x8 的陣列  A，  A = {0, 2, 4, 6, 8, 10, 12, 14}。下方函式Search(x)真正目的是找到  A  之中大於 x 的最小值。然而，這個函式有誤。請問下列哪個函式呼叫可測出函式有誤？</item>
-        <item>給定函式  A1()、  A2()  與  F()  如下，以下敘述何者有誤？</item>
-        <item>下方 F()函式回傳運算式該如何寫，才會使得 F(14)的回傳值為40? </item>
-        <item>下方函式兩個回傳式分別該如何撰寫，才能正確計算並回傳兩參數 a, b 之最大公因數  (Greatest Common Divisor)？</item>
-        <item>若 A 是一個可儲存 n 筆整數的陣列，且資料儲存於A[0]~A[n-1]。經過右程式碼運算後，以下何者敘述不一定正確？</item>
-        <item>若 A[][]  是一個 MxN 的整數陣列，下方程式片段用以計算 A 陣列每一列的總和，以下敘述何者正確？</item>
-        <item>若以 B(5,2)呼叫下方 B()函式，總共會印出幾次  “base case”？</item>
-        <item>給定下方程式，其中 s 有被宣告為全域變數，請問程式   執行後輸出為何？</item>
-        <item>下方 F()函式執行時，若輸入依序為整數 0, 1, 2, 3, 4, 5, 6, 7, 8, 9，請問  X[]  陣列的元素值依順序為何？</item>
-        <item>若以 G(100)呼叫下方函式後，n 的值為何? </item>
-        <item>若 A[1]、A[2]，和 A[3]分別為陣列 A[]的三個元素(element)，下列那個程式片段可以將 A[1]和 A[2]的內容交換？</item>
-        <item>若函式 rand()的回傳值為一介於 0 和 10000 之間的亂數，下列那個運算式可產生介於 100 和1000 之間的任意數(包含 100 和 1000)？</item>
-        <item>下方程式片段無法正確列印 20 次的"Hi!"，請問下列哪一個修正方式仍無法正確列印 20 次的"Hi!"？</item>
-        <item>若以 F(15)呼叫下方 F()函式，總共會印出幾行數字？</item>
-        <item>給定下方函式 F()，執行 F()時哪一行程式碼可能永遠不會被執行到？</item>
-        <item>給定下方函式 F()，已知 F(7)回傳值為 17，且 F(8)回傳值為 25，請問  if 的條件判斷式應為何？</item>
-        <item>給定下方函式 F()，F()執行完所回傳的 x 值為何？</item>
-        <item>下方程式執行完畢後所輸出值為何？</item>
-        <item>下方程式擬找出陣列 A[]中的最大值和最小值。不過，這段程式碼有誤，請問 A[]初始值如何設定就可以測出程式有誤？</item>
-        <item>小藍寫了一段複雜的程式碼想考考你是否了解函式的執行流程。請回答程式最後輸出的數值為何？</item>
-        <item>若以 F(5,2)呼叫下方 F()函式，執行完畢後回傳值為何? </item>
-        <item>若要邏輯判斷式  !(X1 || X2)計算結果為真(True)，則 X1 與 X2 的值分別應為何？</item>
-        <item>程式執行時，程式中的變數值是存放在</item>
-        <item>程式執行過程中，若變數發生溢位情形，其主要原因為何？</item>
-        <item>若  a, b, c, d, e  均為整數變數，下列哪個算式計算結果與  a+b*c-e  計算結果相同？</item>
+        <item>給定一個 1x8 的陣列  A，  A = {0, 2, 4, 6, 8, 10, 12, 14}。下方函式Search(x)真正目的是找到  A  之中大於 x 的最小值。然而，這個函式有誤。請問下列哪個函式呼叫可測出函式有誤？\n\nint\tA[8]\t=\t{0,\t2,\t4,\t6,\t8,\t10,\t12,\t14};\nint\tSearch(int\tx){\n\t\t\t\tint\thigh\t=\t7;\n\t\t\t\tint\tlow\t=\t0;\n\t\t\t\twhile\t(high\t&gt;\tlow){\n\t\t\t\t\t\t\t\tint\tmid\t=\t(high\t+\tlow)\t/\t2;\n\t\t\t\t\t\t\t\tif\t(A[mid]\t&lt;=\tx){\n\t\t\t\t\t\t\t\t\t\t\t\tlow\t=\tmid\t+\t1;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\telse{\n\t\t\t\t\t\t\t\t\t\t\t\thigh\t=\tmid;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\treturn\tA[high];\n}\n</item>
+        <item>給定函式  A1()、  A2()  與  F()  如下，以下敘述何者有誤？\n\nvoid\tA1(int\tn){\n\t\t\t\tF(n\t/\t5);\n\t\t\t\tF(4\t*\tn\t/\t5);\n}\nvoid\tA2(int\tn){\n\t\t\t\tF(2\t*\tn\t/\t5);\n\t\t\t\tF(3\t*\tn\t/\t5);\n}\nvoid\tF(int\tx){\n\t\t\t\tint\ti;\n\t\t\t\tfor\t(i\t=\t0;\ti\t&lt;\tx;\ti\t=\ti\t+\t1)\n\t\t\t\t\t\t\t\tprintf(\"*\");\n\t\t\t\tif\t(x\t&gt;\t1){\n\t\t\t\t\t\t\t\tF(x\t/\t2);\n\t\t\t\t\t\t\t\tF(x\t/\t2);\n\t\t\t\t}\n}\n</item>
+        <item>下方 F()函式回傳運算式該如何寫，才會使得 F(14)的回傳值為40? \n\nint\tF(int\tn){\n\t\t\t\tif\t(n\t&lt;\t4)\n\t\t\t\t\t\t\t\treturn\tn;\n\t\t\t\telse\n\t\t\t\t\t\t\t\treturn\t_______\t?\t_______;\n}\n</item>
+        <item>下方函式兩個回傳式分別該如何撰寫，才能正確計算並回傳兩參數 a, b 之最大公因數  (Greatest Common Divisor)？\n\nint\tGCD(int\ta,\tint\tb){\n\t\t\t\tint\tr;\n\t\t\t\tr\t=\ta\t%\tb;\n\t\t\t\tif\t(r\t==\t0)\n\t\t\t\t\t\t\t\treturn\t__________;\n\t\t\t\treturn\t_____________;\n}\n</item>
+        <item>若 A 是一個可儲存 n 筆整數的陣列，且資料儲存於A[0]~A[n-1]。經過右程式碼運算後，以下何者敘述不一定正確？\n\nint\tA[n]\t=\t{\t…\t};\nint\tp\t=\tq\t=\tA[0];\nfor\t(int\ti\t=\t1;\ti\t&lt;\tn;\ti\t=\ti\t+\t1){\n\t\t\t\tif\t(A[i]\t&gt;\tp)\n\t\t\t\t\t\t\t\tp\t=\tA[i];\n\t\t\t\tif\t(A[i]\t&lt;\tq)\n\t\t\t\t\t\t\t\tq\t=\tA[i];\n}\n</item>
+        <item>若 A[][]  是一個 MxN 的整數陣列，下方程式片段用以計算 A 陣列每一列的總和，以下敘述何者正確？\n\nvoid\tmain(){\n\t\t\t\tint\trowsum\t=\t0;\n\t\t\t\tfor\t(int\ti\t=\t0;\ti\t&lt;\tM;\ti\t=\ti\t+\t1){\n\t\t\t\t\t\t\t\tfor\t(int\tj\t=\t0;\tj\t&lt;\tN;\tj\t=\tj\t+\t1){\n\t\t\t\t\t\t\t\t\t\t\t\trowsum\t=\trowsum\t+\tA[i][j];\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\tprintf(\"The\tsum\tof\trow\t%d\tis\t%d.\\n\",\ti,\trowsum);\n\t\t\t\t}\n}\n</item>
+        <item>若以 B(5,2)呼叫下方 B()函式，總共會印出幾次  “base case”？\n\nint\tB(int\tn,\tint\tk){\n\t\t\t\tif\t(k\t==\t0\t||\tk\t==\tn){\n\t\t\t\t\t\t\t\tprintf(\"base\tcase\\n\");\n\t\t\t\t\t\t\t\treturn\t1;\n\t\t\t\t}\n\t\t\t\treturn\tB(n\t-\t1,\tk\t-\t1)\t+\tB(n\t-\t1,\tk);\n}\n</item>
+        <item>給定下方程式，其中 s 有被宣告為全域變數，請問程式   執行後輸出為何？\n\nint\ts\t=\t1;\t//\t\t全域變數\nvoid\tadd(int\ta){\n\t\t\t\tint\ts\t=\t6;\n\t\t\t\tfor\t(;\ta\t&gt;=\t0;\ta\t=\ta\t-\t1){\n\t\t\t\t\t\t\t\tprintf(\"%d,\",\ts);\n\t\t\t\t\t\t\t\ts++;\n\t\t\t\t\t\t\t\tprintf(\"%d,\",\ts);\n\t\t\t\t}\n}\nint\tmain(){\n\t\t\t\tprintf(\"%d,\",\ts);\n\t\t\t\tadd(s);\n\t\t\t\tprintf(\"%d,\",\ts);\n\t\t\t\ts\t=\t9;\n\t\t\t\tprintf(\"%d\",\ts);\n\t\t\t\treturn\t0;\n}\n</item>
+        <item>下方 F()函式執行時，若輸入依序為整數 0, 1, 2, 3, 4, 5, 6, 7, 8, 9，請問  X[]  陣列的元素值依順序為何？\n\nvoid\tF(){\n\t\t\t\tint\tX[10]\t=\t{0};\n\t\t\t\tfor\t(int\ti\t=\t0;\ti\t&lt;\t10;\ti\t=\ti\t+\t1){\n\t\t\t\t\t\t\t\tscanf(\"%d\",\t&amp;X[(i\t+\t2)\t%\t10]);\n\t\t\t\t}\n}\n</item>
+        <item>若以 G(100)呼叫下方函式後，n 的值為何? \n\nint\tn\t=\t0;\nvoid\tK(int\tb){\n\t\t\t\tn\t=\tn\t+\t1;\n\t\t\t\tif\t(b\t%\t4)\n\t\t\t\t\t\t\t\tK(b\t+\t1);\n}\nvoid\tG(int\tm){\n\t\t\t\tfor\t(int\ti\t=\t0;\ti\t&lt;\tm;\ti\t=\ti\t+\t1){\n\t\t\t\t\t\t\t\tK(i);\n\t\t\t\t}\n}\n</item>
+        <item>若 A[1]、A[2]，和 A[3]分別為陣列 A[]的三個元素(element)，下列那個程式片段可以將 A[1]和 A[2]的內容交換？\n\n</item>
+        <item>若函式 rand()的回傳值為一介於 0 和 10000 之間的亂數，下列那個運算式可產生介於 100 和1000 之間的任意數(包含 100 和 1000)？\n\n</item>
+        <item>下方程式片段無法正確列印 20 次的"Hi!"，請問下列哪一個修正方式仍無法正確列印 20 次的"Hi!"？\n\nfor\t(int\ti\t=\t0;\ti\t&lt;=\t100;\ti\t=\ti\t+\t5){\n\t\t\t\tprintf(\"%s\\n\",\t\"Hi!\");\n}\n</item>
+        <item>若以 F(15)呼叫下方 F()函式，總共會印出幾行數字？\n\nvoid\tF(int\tn){\n\t\t\t\tprintf(\"%d\\n\",\tn);\n\t\t\t\tif\t((n\t%\t2\t==\t1)\t&amp;&amp;\t(n\t&gt;\t1)){\n\t\t\t\t\t\t\t\treturn\tF(5\t*\tn\t+\t1);\n\t\t\t\t}\n\t\t\t\telse{\n\t\t\t\t\t\t\t\tif\t(n\t%\t2\t==\t0)\n\t\t\t\t\t\t\t\t\t\t\t\treturn\tF(n\t/\t2);\n\t\t\t\t}\n}\n</item>
+        <item>給定下方函式 F()，執行 F()時哪一行程式碼可能永遠不會被執行到？\n\nvoid\tF(int\ta){\n\t\t\t\twhile\t(a\t&lt;\t10)\n\t\t\t\t\t\t\t\ta\t=\ta\t+\t5;\n\t\t\t\tif\t(a\t&lt;\t12)\n\t\t\t\t\t\t\t\ta\t=\ta\t+\t2;\n\t\t\t\tif\t(a\t&lt;=\t11)\n\t\t\t\t\t\t\t\ta\t=\t5;\n}\n</item>
+        <item>給定下方函式 F()，已知 F(7)回傳值為 17，且 F(8)回傳值為 25，請問  if 的條件判斷式應為何？\n\nint\tF(int\ta){\nif\t(\t_____?_____\t)\n\t\t\t\treturn\ta\t*\t2\t+\t3;\nelse\n\t\t\t\treturn\ta\t*\t3\t+\t1;\n}\n</item>
+        <item>給定下方函式 F()，F()執行完所回傳的 x 值為何？\n\nint\tF(int\tn){\n\t\t\t\tint\tx\t=\t0;\n\t\t\t\tfor\t(int\ti\t=\t1;\ti\t&lt;=\tn;\ti\t=\ti\t+\t1)\n\t\t\t\t\t\t\t\tfor\t(int\tj\t=\ti;\tj\t&lt;=\tn;\tj\t=\tj\t+\t1)\n\t\t\t\t\t\t\t\t\t\t\t\tfor\t(int\tk\t=\t1;\tk\t&lt;=\tn;\tk\t=\tk\t*\t2)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tx\t=\tx\t+\t1;\n\t\t\t\treturn\tx;\n}\n</item>
+        <item>下方程式執行完畢後所輸出值為何？\n\nint\tmain()\n{\n\t\t\t\tint\tx\t=\t0,\tn\t=\t5;\n\t\t\t\tfor\t(int\ti\t=\t1;\ti\t&lt;=\tn;\ti\t=\ti\t+\t1)\n\t\t\t\t\t\t\t\tfor\t(int\tj\t=\t1;\tj\t&lt;=\tn;\tj\t=\tj\t+\t1)\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\tif\t((i\t+\tj)\t==\t2)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tx\t=\tx\t+\t2;\n\t\t\t\t\t\t\t\t\t\t\t\tif\t((i\t+\tj)\t==\t3)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tx\t=\tx\t+\t3;\n\t\t\t\t\t\t\t\t\t\t\t\tif\t((i\t+\tj)\t==\t4)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tx\t=\tx\t+\t4;\n\t\t\t\t\t\t\t\t}\n\t\t\t\tprintf(\"%d\\n\",\tx);\n\t\t\t\treturn\t0;\n}\n</item>
+        <item>下方程式擬找出陣列 A[]中的最大值和最小值。不過，這段程式碼有誤，請問 A[]初始值如何設定就可以測出程式有誤？\n\nint\tmain(){\n\t\t\t\tint\tM\t=\t-1,\tN\t=\t101,\ts\t=\t3;\n\t\t\t\tint\tA[]\t=\t______\t?\t______;\n\t\t\t\tfor\t(int\ti\t=\t0;\ti\t&lt;\ts;\ti\t=\ti\t+\t1){\n\t\t\t\t\t\t\t\tif\t(A[i]\t&gt;\tM){\n\t\t\t\t\t\t\t\t\t\t\t\tM\t=\tA[i];\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\telse\tif\t(A[i]\t&lt;\tN){\n\t\t\t\t\t\t\t\t\t\t\t\tN\t=\tA[i];\n\t\t\t\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tprintf(\"M\t=\t%d,\tN\t=\t%d\\n\",\tM,\tN);\n\t\t\t\treturn\t0;\n}\n</item>
+        <item>小藍寫了一段複雜的程式碼想考考你是否了解函式的執行流程。請回答程式最後輸出的數值為何？\n\nint\tg1\t=\t30,\tg2\t=\t20;\nint\tf1(int\tv){\n\t\t\t\tint\tg1\t=\t10;\n\t\t\t\treturn\tg1\t+\tv;\n}\nint\tf2(int\tv){\n\t\t\t\tint\tc\t=\tg2;\n\t\t\t\tv\t=\tv\t+\tc\t+\tg1;\n\t\t\t\tg1\t=\t10;\n\t\t\t\tc\t=\t40;\n\t\t\t\treturn\tv;\n}\nint\tmain(){\n\t\t\t\tg2\t=\t0;\n\t\t\t\tg2\t=\tf1(g2);\n\t\t\t\tprintf(\"%d\",\tf2(f2(g2)));\n\t\t\t\treturn\t0;\n}\n</item>
+        <item>若以 F(5,2)呼叫下方 F()函式，執行完畢後回傳值為何? \n\nint\tF(int\tx,\tint\ty){\n\t\t\t\tif\t(x\t&lt;\t1)\n\t\t\t\t\t\t\t\treturn\t1;\n\t\t\t\telse\n\t\t\t\t\t\t\t\treturn\tF(x\t-\ty,\ty)\t+\tF(x\t-\t2\t*\ty,\ty);\n}\n</item>
+        <item>若要邏輯判斷式  !(X1 || X2)計算結果為真(True)，則 X1 與 X2 的值分別應為何？\n\n</item>
+        <item>程式執行時，程式中的變數值是存放在\n\n</item>
+        <item>程式執行過程中，若變數發生溢位情形，其主要原因為何？\n\n</item>
+        <item>若  a, b, c, d, e  均為整數變數，下列哪個算式計算結果與  a+b*c-e  計算結果相同？\n\n</item>
     </string-array>
 
     <string-array name="choice_10503">
@@ -468,7 +468,7 @@
         <item>每一行都執行得到</item>
 
         <item>a % 2 != 1</item>
-        <item>a * 2 > 16</item>
+        <item>a * 2 &gt; 16</item>
         <item>a + 3 &lt; 12</item>
         <item>a * a &lt; 50</item>
 
