@@ -3,7 +3,9 @@ package com.example.apcs_practice.view.activities
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Html
 import android.util.TypedValue
+import androidx.core.text.HtmlCompat
 import com.example.apcs_practice.R
 import kotlinx.android.synthetic.main.activity_detailed.*
 
@@ -31,7 +33,7 @@ class DetailedActivity : AppCompatActivity() {
 
     private fun showDetailed() {
         intent?.extras?.let {
-            tv_content.text = it.getString("content")
+            tv_content.text = Html.fromHtml(it.getString("content"), HtmlCompat.FROM_HTML_MODE_LEGACY)
         }
     }
 }

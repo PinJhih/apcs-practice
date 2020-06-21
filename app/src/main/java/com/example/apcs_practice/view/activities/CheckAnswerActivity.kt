@@ -102,15 +102,15 @@ class CheckAnswerActivity : AppCompatActivity() {
             .setTitle("第${questionNumber + 1}題")
             .setMessage(msg)
             .setPositiveButton("觀看詳解") { _, _ ->
-                showDetailed(msg, questionNumber)
+                showDetailed(questionNumber)
             }
             .setNegativeButton("關閉") { _, _ -> }
             .show()
     }
 
-    private fun showDetailed(question: String, number: Int) {
+    private fun showDetailed(number: Int) {
         val i = Intent(this, DetailedActivity::class.java)
-        val content = "題目:\n" + question + "\n\n" + "解析:\n" + questions[number].detailed
+        val content = questions[number].detailed
 
         i.putExtra("content", content)
         startActivity(i)
