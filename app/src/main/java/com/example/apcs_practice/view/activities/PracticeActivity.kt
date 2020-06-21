@@ -119,13 +119,7 @@ class PracticeActivity : AppCompatActivity() {
             setView()
         }
         btn_finish.setOnClickListener {
-            AlertDialog.Builder(this)
-                .setTitle("確定結束?")
-                .setNegativeButton("取消") { _, _ -> }
-                .setPositiveButton("結束") { _, _ ->
-                    checkAnswer(session)
-                }
-                .show()
+            showFinishDialog()
         }
         //save the answer
         radioGroup.setOnCheckedChangeListener { _, i ->
@@ -143,14 +137,21 @@ class PracticeActivity : AppCompatActivity() {
         setTextView()
     }
 
-    override fun onBackPressed() {
+    private fun showFinishDialog(){
         AlertDialog.Builder(this)
             .setTitle("確定結束?")
-            .setNegativeButton("取消") { _, _ -> }
+            .setMessage("離開則不會記錄本次作答")
+            .setNeutralButton("離開") { _, _ ->
+                finish()
+            }
             .setPositiveButton("結束") { _, _ ->
                 checkAnswer(session)
             }
             .show()
+    }
+
+    override fun onBackPressed() {
+        showFinishDialog()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -218,7 +219,7 @@ class PracticeActivity : AppCompatActivity() {
             if (i >= questions[questionNumber].stem.length)
                 break
         }
-            rv_code.isVisible = (code.size != 0)
+        rv_code.isVisible = (code.size != 0)
     }
 
     private fun checkAnswer(session: Int) {
